@@ -1,7 +1,7 @@
 # Clothes
 [![Discord](https://img.shields.io/badge/chat-on%20discord-7289da.svg)](https://discord.gg/5CpFadd)
 <a href="https://discord.gg/5CpFadd"><img src="https://discordapp.com/api/guilds/472786873492832256/embed.png" alt="Discord server"/></a>
-### Make your skin more splendid
+### Make your skin more splendid 
 
 ## **Config.yml**
  - Type the clothes' name into the config like example to assign it with a permission for using
