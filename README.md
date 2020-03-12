@@ -13,7 +13,7 @@
  -GD extension required, do as following construction on the console's message
  
  
- -That it
+ -That's all
 ## **Config.yml**
  - Type the clothes' name into the config like example to assign it with a permission for using
 
