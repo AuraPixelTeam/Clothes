@@ -42,7 +42,7 @@ class Clothes extends PluginBase implements Listener {
 		$this->checkAvailableClothes($this->getDataFolder()."lefthand","lefthand");
 		$this->checkAvailableClothes($this->getDataFolder()."tail","tail");
 		
-        $this->getLogger()->info("§aClothes enable successfull");
+        #$this->getLogger()->info("§aClothes enable successfull");
 	}
 
     public function onJoin(PlayerJoinEvent $e){
