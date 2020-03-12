@@ -1,0 +1,10 @@
+name: Clothes
+version: 1
+main: TungstenVn\Clothes
+api: 3.0.0
+author: TungstenVn
+commands:
+ clo:
+  description: "Open clothes menu"
+ clothes:
+  description: "Open clothes menu"
