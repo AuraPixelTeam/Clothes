@@ -1,6 +1,7 @@
 # Clothes
-[![DiscordHello](https://img.shields.io/badge/chat-on%20discord-7289da.svg)](https://discord.gg/5CpFadd)
+[![Discord](https://img.shields.io/badge/chat-on%20discord-7289da.svg)](https://discord.gg/5CpFadd)
 <a href="https://discord.gg/5CpFadd"><img src="https://discordapp.com/api/guilds/472786873492832256/embed.png" alt="Discord server"/></a>
+[![Poggit](https://poggit.pmmp.io/ci.badge/TungstenVn/Clothes/Clothes?build=17)](https://poggit.pmmp.io/ci.badge/TungstenVn/Clothes/Clothes?build=17)
 ### Make your skin more splendid 
 
 ## **Config.yml**
