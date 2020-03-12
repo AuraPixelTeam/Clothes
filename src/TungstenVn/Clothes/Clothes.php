@@ -1,6 +1,6 @@
 <?php
 
-namespace TungstenVn;
+namespace TungstenVn\Clothes;
 
 use pocketmine\plugin\PluginBase;
 use pocketmine\Player; 
@@ -10,11 +10,11 @@ use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\event\Event;
 use pocketmine\event\player\PlayerJoinEvent;
-use TungstenVn\skinStuff\saveSkin;
-use TungstenVn\skinStuff\resetSkin;
-use TungstenVn\skinStuff\setSkin;
-use TungstenVn\copyResource\copyResource;
-use TungstenVn\jojoe77777\FormAPI\FormAPI;
+use TungstenVn\Clothes\skinStuff\saveSkin;
+use TungstenVn\Clothes\skinStuff\resetSkin;
+use TungstenVn\Clothes\skinStuff\setSkin;
+use TungstenVn\Clothes\copyResource\copyResource;
+use TungstenVn\Clothes\jojoe77777\FormAPI\FormAPI;
 class Clothes extends PluginBase implements Listener {
     public static $instance;
     public $wing = [],$leftHand = [],$tail =[];
@@ -42,7 +42,7 @@ class Clothes extends PluginBase implements Listener {
 		$this->checkAvailableClothes($this->getDataFolder()."lefthand","lefthand");
 		$this->checkAvailableClothes($this->getDataFolder()."tail","tail");
 		
-        $this->getLogger()->info("§aClothes enable successfull");
+        #$this->getLogger()->info("§aClothes enable successfull");
 	}
 
     public function onJoin(PlayerJoinEvent $e){

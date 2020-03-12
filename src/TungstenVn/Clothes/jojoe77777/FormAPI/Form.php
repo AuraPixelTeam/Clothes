@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace TungstenVn\jojoe77777\FormAPI;
+namespace TungstenVn\Clothes\jojoe77777\FormAPI;
 
 use pocketmine\form\Form as IForm;
 use pocketmine\Player;

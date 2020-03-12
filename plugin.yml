@@ -1,6 +1,6 @@
 name: Clothes
 version: 1
-main: TungstenVn\Clothes
+main: TungstenVn\Clothes\Clothes
 api: 3.0.0
 author: TungstenVn
 commands:

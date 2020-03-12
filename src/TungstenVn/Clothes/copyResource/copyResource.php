@@ -1,6 +1,6 @@
 <?php
 
-namespace TungstenVn\copyResource;
+namespace TungstenVn\Clothes\copyResource;
 
 use pocketmine\Player; 
 use pocketmine\Server;
@@ -10,7 +10,7 @@ use pocketmine\command\CommandSender;
 use pocketmine\event\Event;
 use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\entity\Skin;
-use TungstenVn\Main;
+use TungstenVn\Clothes\Main;
 class copyResource {
 
 	public function recurse_copy($src,$dst) { 

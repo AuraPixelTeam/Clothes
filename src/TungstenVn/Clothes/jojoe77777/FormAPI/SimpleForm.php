@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace TungstenVn\jojoe77777\FormAPI;
+namespace TungstenVn\Clothes\jojoe77777\FormAPI;
 
 class SimpleForm extends Form {
 

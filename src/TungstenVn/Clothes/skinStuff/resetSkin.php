@@ -1,6 +1,6 @@
 <?php
 
-namespace TungstenVn\skinStuff;
+namespace TungstenVn\Clothes\skinStuff;
 
 use pocketmine\Player; 
 use pocketmine\Server;
@@ -10,7 +10,7 @@ use pocketmine\command\CommandSender;
 use pocketmine\event\Event;
 use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\entity\Skin;
-use TungstenVn\Clothes;
+use TungstenVn\Clothes\Clothes;
 class resetSkin {
 
 
