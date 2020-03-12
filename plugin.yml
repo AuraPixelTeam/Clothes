@@ -3,6 +3,7 @@ version: 1
 main: TungstenVn\Clothes
 api: 3.0.0
 author: TungstenVn
+extensions: gd
 commands:
  clo:
   description: "Open clothes menu"
