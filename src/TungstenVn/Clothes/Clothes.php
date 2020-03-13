@@ -14,7 +14,7 @@ use TungstenVn\Clothes\skinStuff\saveSkin;
 use TungstenVn\Clothes\skinStuff\resetSkin;
 use TungstenVn\Clothes\skinStuff\setSkin;
 use TungstenVn\Clothes\copyResource\copyResource;
-use TungstenVn\Clothes\libs\jojoe77777\FormAPI\FormAPI;
+use TungstenVn\Clothes\ui\FormAPI\FormAPI;
 class Clothes extends PluginBase implements Listener {
     public static $instance;
     public $wing = [],$leftHand = [],$tail =[];
