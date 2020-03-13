@@ -2,19 +2,15 @@
 
 namespace TungstenVn\Clothes\skinStuff;
 
-use pocketmine\Player; 
-use pocketmine\Server;
-use pocketmine\event\Listener;
-use pocketmine\command\Command;
-use pocketmine\command\CommandSender;
-use pocketmine\event\Event;
-use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\entity\Skin;
+use pocketmine\Player;
 use TungstenVn\Clothes\Clothes;
+
 class setSkin {
-	public function setSkin($player,$stuffName,$locate){
-        $skin = $player->getSkin();$name = $player->getName();
-        $path = $this->imgTricky($name,$stuffName,$locate);
+    public function setSkin(Player $player, string $stuffName, string $locate) {
+        $skin = $player->getSkin();
+        $name = $player->getName();
+        $path = $this->imgTricky($name, $stuffName, $locate);
         #$path = Clothes::$instance->getDataFolder()."wing/".$stuffName.".png";
         $img = @imagecreatefrompng($path);
         $skinbytes = "";
@@ -27,15 +23,16 @@ class setSkin {
                 $r = ($colorat >> 16) & 0xff;
                 $g = ($colorat >> 8) & 0xff;
                 $b = $colorat & 0xff;
-                $skinbytes .= chr($r) . chr($g) . chr($b) . chr($a);
+                $skinbytes .= chr($r).chr($g).chr($b).chr($a);
             }
         }
         @imagedestroy($img);
-        $player->setSkin(new Skin($skin->getSkinId(), $skinbytes, "", "geometry.".$locate,file_get_contents(Clothes::$instance->getDataFolder().$locate."/". $stuffName.".json")));
+        $player->setSkin(new Skin($skin->getSkinId(), $skinbytes, "", "geometry.".$locate, file_get_contents(Clothes::$instance->getDataFolder().$locate."/".$stuffName.".json")));
         $player->sendSkin();
     }
-    public function imgTricky($playername,$stuffName,$locate){
-    	$path = Clothes::$instance->getDataFolder();
+
+    public function imgTricky(string $playername, string $stuffName, string $locate) {
+        $path = Clothes::$instance->getDataFolder();
         $down = imagecreatefrompng($path.'saveskin/'.$playername.".png");
         $upper = imagecreatefrompng($path.$locate.'/'.$stuffName.".png");
         imagealphablending($down, true);

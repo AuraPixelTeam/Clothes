@@ -2,20 +2,16 @@
 
 namespace TungstenVn\Clothes\skinStuff;
 
-use pocketmine\Player; 
-use pocketmine\Server;
-use pocketmine\event\Listener;
-use pocketmine\command\Command;
-use pocketmine\command\CommandSender;
-use pocketmine\event\Event;
-use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\entity\Skin;
+use pocketmine\Player;
 use TungstenVn\Clothes\Clothes;
+
 class resetSkin {
 
 
-	public function setSkin($player) {
-        $skin = $player->getSkin();$name = $player->getName();
+    public function setSkin(Player $player) {
+        $skin = $player->getSkin();
+        $name = $player->getName();
         $path = Clothes::$instance->getDataFolder()."saveskin/".$name.".png";
         $img = @imagecreatefrompng($path);
         $skinbytes = "";

@@ -1,5 +1,5 @@
 name: Clothes
-version: 1
+version: 1.0.0
 main: TungstenVn\Clothes\Clothes
 api: 3.0.0
 author: TungstenVn
