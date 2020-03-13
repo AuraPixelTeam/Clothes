@@ -15,6 +15,8 @@ use TungstenVn\Clothes\skinStuff\resetSkin;
 use TungstenVn\Clothes\skinStuff\setSkin;
 use TungstenVn\Clothes\copyResource\copyResource;
 use TungstenVn\Clothes\ui\FormAPI\FormAPI;
+
+use TungstenVn\Clothes\libs\jojoe77777\FormAPI\SimpleForm;
 class Clothes extends PluginBase implements Listener {
     public static $instance;
     public $wing = [],$leftHand = [],$tail =[];
@@ -26,6 +28,11 @@ class Clothes extends PluginBase implements Listener {
 	public function checkRequirement(){
 		if (!extension_loaded("gd")){
             $this->getServer()->getLogger()->info("§6Clothes: Uncomment gd2.dll (remove symbol ';' in ';extension=php_gd2.dll') in bin/php/php.ini to make the plugin working");
+            $this->getServer()->getPluginManager()->disablePlugin($this);
+            return;
+        }
+        if(!class_exists(SimpleForm::class)){
+         $this->getServer()->getLogger()->info("§6Clothes: FormAPI class (plugin) missing");
             $this->getServer()->getPluginManager()->disablePlugin($this);
             return;
         }
