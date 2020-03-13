@@ -29,11 +29,11 @@ class Clothes extends PluginBase implements Listener {
             $this->getServer()->getPluginManager()->disablePlugin($this);
             return;
         }
-        if($this->getServer()->getPluginManager()->getPlugin("FormAPI") == null){
-        	$this->getServer()->getLogger()->info("§6Clothes: Install FormAPI plugin!");
-            $this->getServer()->getPluginManager()->disablePlugin($this);
-            return;
-        }
+        // if($this->getServer()->getPluginManager()->getPlugin("FormAPI") == null){
+        // 	$this->getServer()->getLogger()->info("§6Clothes: Install FormAPI plugin!");
+        //     $this->getServer()->getPluginManager()->disablePlugin($this);
+        //     return;
+        // }
         if(!file_exists($this->getDataFolder()."steve.json") || !file_exists($this->getDataFolder()."config.yml")){
         	if(file_exists(str_replace("config.yml","",$this->getResources()["config.yml"]))){
 			   $var = new copyResource();
