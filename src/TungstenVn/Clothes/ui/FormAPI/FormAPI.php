@@ -5,8 +5,8 @@ declare(strict_types = 1);
 namespace TungstenVn\Clothes\ui\FormAPI;
 
 use TungstenVn\Clothes\libs\jojoe77777\FormAPI\SimpleForm;
-use TungstenVn\Clothes\libsjojoe77777\FormAPI\CustomForm;
-use TungstenVn\Clothes\libsjojoe77777\FormAPI\ModelForm;
+use TungstenVn\Clothes\libs\jojoe77777\FormAPI\CustomForm;
+use TungstenVn\Clothes\libs\jojoe77777\FormAPI\ModelForm;
 class FormAPI{
 
     public function createCustomForm(?callable $function = null) : CustomForm {
