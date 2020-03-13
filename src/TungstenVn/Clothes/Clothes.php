@@ -14,7 +14,7 @@ use TungstenVn\Clothes\skinStuff\saveSkin;
 use TungstenVn\Clothes\skinStuff\resetSkin;
 use TungstenVn\Clothes\skinStuff\setSkin;
 use TungstenVn\Clothes\copyResource\copyResource;
-use TungstenVn\Clothes\jojoe77777\FormAPI\FormAPI;
+#use jojoe77777\FormAPI\FormAPI;
 class Clothes extends PluginBase implements Listener {
     public static $instance;
     public $wing = [],$leftHand = [],$tail =[];
@@ -26,6 +26,11 @@ class Clothes extends PluginBase implements Listener {
 	public function checkRequirement(){
 		if (!extension_loaded("gd")){
             $this->getServer()->getLogger()->info("§6Clothes: Uncomment gd2.dll (remove symbol ';' in ';extension=php_gd2.dll') in bin/php/php.ini to make the plugin working");
+            $this->getServer()->getPluginManager()->disablePlugin($this);
+            return;
+        }
+        if($this->getServer()->getPluginManager()->getPlugin("FormAPI") == null){
+        	$this->getServer()->getLogger()->info("§6Clothes: Install FormAPI plugin!");
             $this->getServer()->getPluginManager()->disablePlugin($this);
             return;
         }
@@ -68,7 +73,7 @@ class Clothes extends PluginBase implements Listener {
 	
 	
    public function mainform($player,$txt){
-	   $api = new FormAPI();
+	   $api = $this->getServer()->getPluginManager()->getPlugin("FormAPI");
 		$form = $api->createSimpleForm(function (Player $player, int $data = null){
 			$result = $data;
 			if($result === null){
@@ -107,7 +112,7 @@ class Clothes extends PluginBase implements Listener {
 	  $reset->setSkin($player);
    }
    public function wing($player,$txt){
-	    $api = new FormAPI();
+	    $api = $this->getServer()->getPluginManager()->getPlugin("FormAPI");
 		$form = $api->createSimpleForm(function (Player $player, int $data = null){
 			  $result = $data;
 			  if($result === null){
@@ -157,7 +162,7 @@ class Clothes extends PluginBase implements Listener {
 			return $form; 
    }	
    public function leftHand($player,$txt){
-	    $api = new FormAPI();
+	    $api = $this->getServer()->getPluginManager()->getPlugin("FormAPI");
 		$form = $api->createSimpleForm(function (Player $player, int $data = null){
 			  $result = $data;
 			  if($result === null){
@@ -206,7 +211,7 @@ class Clothes extends PluginBase implements Listener {
 			return $form; 
    }
    public function tail($player,$txt){
-	    $api = new FormAPI();
+	    $api = $this->getServer()->getPluginManager()->getPlugin("FormAPI");
 		$form = $api->createSimpleForm(function (Player $player, int $data = null){
 			  $result = $data;
 			  if($result === null){
