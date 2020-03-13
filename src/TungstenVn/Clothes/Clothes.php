@@ -42,6 +42,7 @@ class Clothes extends PluginBase implements Listener {
                $var->recurse_copy(str_replace("config.yml","",$this->getResources()["config.yml"]),$this->getDataFolder());
             }else {
                 $this->getServer()->getLogger()->info("§6Clothes: Something wrong with the resources");
+                $this->getServer()->getPluginManager()->disablePlugin($this);
                 return;
             }
         }
