@@ -14,7 +14,7 @@ use TungstenVn\Clothes\skinStuff\saveSkin;
 use TungstenVn\Clothes\skinStuff\resetSkin;
 use TungstenVn\Clothes\skinStuff\setSkin;
 use TungstenVn\Clothes\copyResource\copyResource;
-#use jojoe77777\FormAPI\FormAPI;
+use TungstenVn\Clothes\libs\jojoe77777\FormAPI\FormAPI;
 class Clothes extends PluginBase implements Listener {
     public static $instance;
     public $wing = [],$leftHand = [],$tail =[];
@@ -73,7 +73,7 @@ class Clothes extends PluginBase implements Listener {
 	
 	
    public function mainform($player,$txt){
-	   $api = $this->getServer()->getPluginManager()->getPlugin("FormAPI");
+	   $api = new FormAPI();
 		$form = $api->createSimpleForm(function (Player $player, int $data = null){
 			$result = $data;
 			if($result === null){
@@ -112,7 +112,7 @@ class Clothes extends PluginBase implements Listener {
 	  $reset->setSkin($player);
    }
    public function wing($player,$txt){
-	    $api = $this->getServer()->getPluginManager()->getPlugin("FormAPI");
+	    $api = new FormAPI();
 		$form = $api->createSimpleForm(function (Player $player, int $data = null){
 			  $result = $data;
 			  if($result === null){
@@ -162,7 +162,7 @@ class Clothes extends PluginBase implements Listener {
 			return $form; 
    }	
    public function leftHand($player,$txt){
-	    $api = $this->getServer()->getPluginManager()->getPlugin("FormAPI");
+	    $api = new FormAPI();
 		$form = $api->createSimpleForm(function (Player $player, int $data = null){
 			  $result = $data;
 			  if($result === null){
@@ -211,7 +211,7 @@ class Clothes extends PluginBase implements Listener {
 			return $form; 
    }
    public function tail($player,$txt){
-	    $api = $this->getServer()->getPluginManager()->getPlugin("FormAPI");
+	    $api = new FormAPI();
 		$form = $api->createSimpleForm(function (Player $player, int $data = null){
 			  $result = $data;
 			  if($result === null){
