@@ -17,10 +17,9 @@ class resetSkin {
         $size = 0;
         if(filesize($path2) == 65536){
             $size = 128;
-        }else{
+        }else {
             $size = 64;
         }
-
         $img = @imagecreatefrompng($path);
         $skinbytes = "";
         $s = (int)@getimagesize($path)[1];

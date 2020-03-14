@@ -13,8 +13,14 @@ class saveSkin {
             mkdir($path."saveskin", 0777);
         }
 
-        file_put_contents($path."saveskin/".$name.".txt",$skin->getSkinData());
+        if(file_exists($path."saveskin/".$name.".txt")){
+            unlink($path."saveskin/".$name.".txt");
+        }
 
+        file_put_contents($path."saveskin/".$name.".txt",$skin->getSkinData());
+        
+        #var_dump(filesize($path."saveskin/".$name.".txt"));     
+        
         $img = null;
         if(filesize($path."saveskin/".$name.".txt") == 65536){
             $img = $this->toImage($skin->getSkinData(),128,128);
@@ -23,6 +29,7 @@ class saveSkin {
         }
         imagepng($img, $path."saveskin/".$name.".png");
     }
+    // taken from https://github.com/thebigsmileXD/skinapi/blob/master/src/xenialdan/skinapi/API.php
     public function toImage($data, $height, $width){
         $pixelarray = str_split(bin2hex($data), 8);
         $image = imagecreatetruecolor($width, $height);

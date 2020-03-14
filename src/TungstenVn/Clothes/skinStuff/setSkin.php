@@ -51,7 +51,6 @@ class setSkin {
         }else{
             $upper = imagecreatefrompng($path.$locate."/".$stuffName.".png");
         }
-        
         //Remove black color out of the png
         imagecolortransparent($upper, imagecolorallocatealpha($upper, 0, 0, 0, 127));
         
