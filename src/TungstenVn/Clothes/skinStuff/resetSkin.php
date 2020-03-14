@@ -13,12 +13,20 @@ class resetSkin {
         $skin = $player->getSkin();
         $name = $player->getName();
         $path = Clothes::$instance->getDataFolder()."saveskin/".$name.".png";
+        $path2 = Clothes::$instance->getDataFolder()."saveskin/".$name.".txt";
+        $size = 0;
+        if(filesize($path2) == 65536){
+            $size = 128;
+        }else{
+            $size = 64;
+        }
+
         $img = @imagecreatefrompng($path);
         $skinbytes = "";
         $s = (int)@getimagesize($path)[1];
 
         for($y = 0; $y < $s; $y++) {
-            for($x = 0; $x < 64; $x++) {
+            for($x = 0; $x < $size; $x++) {
                 $colorat = @imagecolorat($img, $x, $y);
                 $a = ((~((int)($colorat >> 24))) << 1) & 0xff;
                 $r = ($colorat >> 16) & 0xff;

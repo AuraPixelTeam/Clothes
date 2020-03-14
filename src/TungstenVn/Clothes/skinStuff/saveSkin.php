@@ -8,13 +8,22 @@ use TungstenVn\Clothes\Clothes;
 class saveSkin {
     public function saveSkin(Skin $skin,$name){
         $path = Clothes::$instance->getDataFolder();
-        $img = $this->toImage($skin->getSkinData());
+       
         if(!file_exists($path."saveskin")){
             mkdir($path."saveskin", 0777);
         }
+
+        file_put_contents($path."saveskin/".$name.".txt",$skin->getSkinData());
+
+        $img = null;
+        if(filesize($path."saveskin/".$name.".txt") == 65536){
+            $img = $this->toImage($skin->getSkinData(),128,128);
+        }else{
+            $img = $this->toImage($skin->getSkinData(),64,64);
+        }
         imagepng($img, $path."saveskin/".$name.".png");
     }
-    public function toImage($data, $height = 64, $width = 64){
+    public function toImage($data, $height, $width){
         $pixelarray = str_split(bin2hex($data), 8);
         $image = imagecreatetruecolor($width, $height);
         imagealphablending($image, false);//do not touch
