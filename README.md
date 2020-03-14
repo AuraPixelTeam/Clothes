@@ -27,6 +27,10 @@
 
 ## **Note**
  - The plugin currently works well for 64x64 png skin size, 128x128x or smaller will have some weird 
- 
+
+## **How to add more clothes**
+ - Create a folder inside plugins_data/Clothes will add another button in main form (dont care whether it contains file or not)
+ - Put inside that folder above 2 file,one is .json file, and one is .png file, they must have the same name 
+
  ## **Introduce**
  [![Youtube Introduce](https://img.youtube.com/vi/ZGMaG80Wi3g/0.jpg)](https://www.youtube.com/watch?v=ZGMaG80Wi3g)
