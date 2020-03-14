@@ -3,6 +3,7 @@
 namespace TungstenVn\Clothes\checkStuff;
 
 use jojoe77777\FormAPI\SimpleForm;
+use TungstenVn\Clothes\copyResource\copyResource;
 use TungstenVn\Clothes\Clothes;
 
 class checkRequirement {
