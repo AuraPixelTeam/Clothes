@@ -25,9 +25,6 @@
  - If you want to remove perm, just remove something similar to : "sidecap: sidecap.perm".
    Don't remove the "perms:" text in line 2 (it should be in line 2)
 
-## **Note**
- - The plugin currently works well for 64x64 png skin size, 128x128x or smaller will have some weird 
-
 ## **How to add more clothes**
  - Create a folder inside plugins_data/Clothes will add another button in main form (dont care whether it contains file or not)
  - Put inside that folder above 2 file,one is .json file, and one is .png file, they must have the same name 
