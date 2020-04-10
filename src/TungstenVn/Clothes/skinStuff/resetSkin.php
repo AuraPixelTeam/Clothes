@@ -6,26 +6,23 @@ use pocketmine\entity\Skin;
 use pocketmine\Player;
 use TungstenVn\Clothes\Clothes;
 
-class resetSkin {
+class resetSkin
+{
 
 
-    public function setSkin(Player $player) {
+    public function setSkin(Player $player)
+    {
         $skin = $player->getSkin();
         $name = $player->getName();
-        $path = Clothes::$instance->getDataFolder()."saveskin/".$name.".png";
-        $path2 = Clothes::$instance->getDataFolder()."saveskin/".$name.".txt";
-        $size = 0;
-        if(filesize($path2) == 65536){
-            $size = 128;
-        }else {
-            $size = 64;
+        $path = Clothes::$instance->getDataFolder() . "saveskin/" . $name . ".png";
+        if(!file_exists($path)){
+            $path = Clothes::$instance->getDataFolder()."steve.png";
         }
         $img = @imagecreatefrompng($path);
+        $size = getimagesize($path);
         $skinbytes = "";
-        $s = (int)@getimagesize($path)[1];
-
-        for($y = 0; $y < $s; $y++) {
-            for($x = 0; $x < $size; $x++) {
+        for ($y = 0; $y < $size[1]; $y++) {
+            for ($x = 0; $x < $size[0]; $x++) {
                 $colorat = @imagecolorat($img, $x, $y);
                 $a = ((~((int)($colorat >> 24))) << 1) & 0xff;
                 $r = ($colorat >> 16) & 0xff;
@@ -35,7 +32,7 @@ class resetSkin {
             }
         }
         @imagedestroy($img);
-        $player->setSkin(new Skin($skin->getSkinId(), $skinbytes, "", "geometry.humanoid.custom",file_get_contents(Clothes::$instance->getDataFolder(). "steve.json")));
+        $player->setSkin(new Skin($skin->getSkinId(), $skinbytes, "", "geometry.humanoid.custom", file_get_contents(Clothes::$instance->getDataFolder() . "steve.json")));
         $player->sendSkin();
     }
 }

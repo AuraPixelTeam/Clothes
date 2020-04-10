@@ -10,4 +10,9 @@ commands:
     description: Open clothes menu
   clothes:
     description: Open clothes menu
+  cos:
+    description: Open cosplay menu
+  cosplays:
+    description: Open cosplay menu
+
 ...
