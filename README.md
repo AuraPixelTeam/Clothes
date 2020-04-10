@@ -19,7 +19,7 @@
  -That's all
 ## **Commands**
  - Type "/clo" or "/clothes" and a UI will display for you to chosing the clothes
-
+ - Type "/cos" or "/cosplays" to change the skin
 ## **Config.yml**
  - Type the clothes' name into the config like example to assign it with a permission for using
  - If you want to remove perm, just remove something similar to : "sidecap: sidecap.perm".
@@ -53,4 +53,5 @@
    - Then add json, png to just like clothes (but in cosplays folder).
  + If you having some problem just leave a comment under the poggit review or open a issue on github.
  ## **Introduce**
- [![Youtube Introduce](https://img.youtube.com/vi/ZGMaG80Wi3g/0.jpg)](https://www.youtube.com/watch?v=ZGMaG80Wi3g)
+- A video about the plugin: 
+[![Youtube Introduce](https://img.youtube.com/vi/ZGMaG80Wi3g/0.jpg)](https://www.youtube.com/watch?v=ZGMaG80Wi3g)
