@@ -38,19 +38,19 @@
  + For Clothes:
    - If you are new ,just importing the example clothes (.json file) in the plugin to the blockbench
    - Now you can see a steve geometry with the wing or shield, you can delete the wing/shield
-     but DO NOT touch the steve geometry
+     - but DO NOT touch the steve geometry
    - Move to the texture, add the example texture to see how i drawed it, you need to find a unuse spot
-     on the texture, draw on it, maybe in the neck, empty spot,etc.
-	 texture can be in 64x64 or 128x128
+     - on the texture, draw on it, maybe in the neck, empty spot,etc.
+	 - texture can be in 64x64 or 128x128
    -Then save the json and texture file with same name.
    -After you have the json file, go into it and change the geometry's name to "geometry.'abc'/'xyz'"
-    'abc' is clothes or cosplays. 'xyz' is the folder's named which contain the clothes/cosplays*
-	if you do the tutorial at *How to add more clothes/cosplays*, the geometry's name will be "geometry.clothes/Hat"
+     - 'abc' is clothes or cosplays. 'xyz' is the folder's named which contain the clothes/cosplays*
+	 - if you do the tutorial at *How to add more clothes/cosplays*, the geometry's name will be "geometry.clothes/Hat"
    -And also you have the .png file, go to some applications (3d paint on win10,..) which have eraser tool to remove pixels that the clothes dont use
  + For Cosplays:
    - You should add a steve geometry json file then draw on it so the body,arm,leg can moving while player is moving 
    - Draw the texture to fit with the geometry
-   then add json, png to just like clothes (but in cosplays folder).
- If you having some problem just leave a comment under the poggit review or open a issue on github.
+   - Then add json, png to just like clothes (but in cosplays folder).
+ + If you having some problem just leave a comment under the poggit review or open a issue on github.
  ## **Introduce**
  [![Youtube Introduce](https://img.youtube.com/vi/ZGMaG80Wi3g/0.jpg)](https://www.youtube.com/watch?v=ZGMaG80Wi3g)
