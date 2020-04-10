@@ -20,8 +20,6 @@ class Clothes extends PluginBase implements Listener
     /** @var self $instance */
     public static $instance;
 
-    public $banned = [];
-
     // sth like ["wing","lefthand"]:
     public $clothesTypes = [];
     public $cosplaysTypes = [];
@@ -68,11 +66,7 @@ class Clothes extends PluginBase implements Listener
         $name = $e->getPlayer()->getName();
         $skin = $e->getPlayer()->getSkin();
         if (preg_replace('/\s+/', '', $skin->getGeometryData()) != preg_replace('/\s+/', '', file_get_contents($this->getDataFolder() . "steve.json"))) {
-            if ($skin->getGeometryData() == 0) {
-                $this->getServer()->broadcastMessage("§bClothes: §rPlayer §6" . strtolower($name) . "§r is using default skin due to having a freak skin");
-                return;
-            }
-            $this->getServer()->broadcastMessage("§bClothes: §rPlayer §6" . strtolower($name) . "§r is using invalid skin (4d skin)");
+            $this->getServer()->broadcastMessage("§bClothes: §rPlayer §6" . strtolower($name) . "§r is using default/4d skin");
             return;
         }
         if (strlen($skin->getSkinData()) == 8192) {
@@ -82,12 +76,4 @@ class Clothes extends PluginBase implements Listener
         $saveSkin = new saveSkin();
         $saveSkin->saveSkin($skin, $name);
     }
-
-    public function onQuit(PlayerQuitEvent $e)
-    {
-        if (isset($this->banned[$e->getPlayer()->getName()])) {
-            unset($this->banned[$e->getPlayer()->getName()]);
-        }
-    }
-
 }
