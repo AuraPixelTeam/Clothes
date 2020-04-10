@@ -4,21 +4,20 @@
 [![Discord](https://img.shields.io/badge/chat-on+discord-7289da.svg)](https://discord.gg/5CpFadd)
 <a href="https://discord.gg/5CpFadd"><img src="https://discordapp.com/api/guilds/472786873492832256/embed.png" alt="Discord server"/></a>
 ### Make your skin more splendid
-- **Why would you need to use this plugin:**
- - You dont,but this plugin will help your server more funny cuz player have something to show up, a wing, a caption american shield.
- - The clothes also has permission for using,so that you can add the custom clothes to specific rank   
-- **Note of the plugin:**
- - GD2 extension required, do as following construction on the console's message (in case you dont know what it is)
- - FormAPI lib required, download this plugin (Clothes) from poggit (which will be .phar type) if you dont similar to this
- 
- -That's all
++ **Why would you need to use this plugin:**
+  - You dont,but this plugin will help your server more funny cuz player have something to show up, a wing, a caption american shield.
+  - The clothes also has permission for using,so that you can add the custom clothes to specific rank   
++ **Note of the plugin:**
+  - GD2 extension required, do as following construction on the console's message (in case you dont know what it is)
+  - FormAPI lib required, download this plugin (Clothes) from poggit (which will be .phar type) if you dont similar to this
+  - That's all
 ## **Commands**
- - Type "/clo" or "/clothes" and a UI will display for you to chosing the clothes
- - Type "/cos" or "/cosplays" to change the skin
+ + Type "/clo" or "/clothes" and a UI will display for you to chosing the clothes
+ + Type "/cos" or "/cosplays" to change the skin
 ## **Config.yml**
- - Type the clothes' name into the config like example to assign it with a permission for using
- - If you want to remove perm, just remove something similar to : "sidecap: sidecap.perm".
-   Don't remove the "perms:" text in line 2 (it should be in line 2)
+ + Type the clothes' name into the config like example to assign it with a permission for using
+ + If you want to remove perm, just remove something similar to : "sidecap: sidecap.perm".
+   - Don't remove the "perms:" text in line 2 (it should be in line 2)
 
 ## **How to add more clothes/cosplays**
  + For example, you want to create a button named "Hat" in "/clo.When you click the button, you want to have a cloth named "Cowboy":
@@ -48,4 +47,5 @@
    - Then add json, png to just like clothes (but in cosplays folder).
  + If you having some problem just leave a comment under the poggit review or open a issue on github.
  ## **Introduce**
- [![Youtube Introduce](https://img.youtube.com/vi/ZGMaG80Wi3g/0.jpg)](https://www.youtube.com/watch?v=ZGMaG80Wi3g)
+ + A video about the plugin:
+   [![Youtube Introduce](https://img.youtube.com/vi/ZGMaG80Wi3g/0.jpg)](https://www.youtube.com/watch?v=ZGMaG80Wi3g)
