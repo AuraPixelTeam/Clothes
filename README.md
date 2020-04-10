@@ -54,4 +54,4 @@
  + If you having some problem just leave a comment under the poggit review or open a issue on github.
  ## **Introduce**
 - A video about the plugin: 
-[![Youtube Introduce](https://img.youtube.com/vi/ZGMaG80Wi3g/0.jpg)](https://www.youtube.com/watch?v=ZGMaG80Wi3g)
+- [![Youtube Introduce](https://img.youtube.com/vi/ZGMaG80Wi3g/0.jpg)](https://www.youtube.com/watch?v=ZGMaG80Wi3g)
