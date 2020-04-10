@@ -20,16 +20,16 @@
    - Don't remove the "perms:" text in line 2 (it should be in line 2)
 
 ## **How to add more clothes/cosplays**
- + For example, you want to create a button named "Hat" in "/clo.When you click the button, you want to have a cloth named "Cowboy":
-   -You go to plugins_data/clothes create a folder named "Hat"
-   -Go inside "Hat" folder, put 2 files, one named Cowboy.json, one named Cowboy.png
-   -Then it would be works
- + Note:
-   -The clothes must inside the plugins_data/clothes folder.
-   -Do the same for Cosplays feature.
+ + **For example**, you want to create a button named "Hat" in "/clo.When you click the button, you want to have a cloth named "Cowboy":
+   - You go to plugins_data/clothes create a folder named "Hat"
+   - Go inside "Hat" folder, put 2 files, one named Cowboy.json, one named Cowboy.png
+   - Then it would be works
+ + **Note**:
+   - The clothes must inside the plugins_data/clothes folder.
+   - Do the same for Cosplays feature.
  ## **Where to get clothes/cosplays**
  - You need to draw it, i'm using blockbench.net
- + For Clothes:
+ + **For Clothes**:
    - If you are new ,just importing the example clothes (.json file) in the plugin to the blockbench
    - Now you can see a steve geometry with the wing or shield, you can delete the wing/shield
      - but DO NOT touch the steve geometry
@@ -39,9 +39,9 @@
    - Then save the json and texture file with same name.
    - After you have the json file, go into it and change the geometry's name to "geometry.'abc'/'xyz'"
      - 'abc' is clothes or cosplays. 'xyz' is the folder's named which contain the clothes/cosplays*
-	 - if you do the tutorial at *How to add more clothes/cosplays*, the geometry's name will be "geometry.clothes/Hat"
+	 - if you do the tutorial at *How to add more clothes/cosplays*, the geometry's name will be **geometry.clothes/Hat**
    - And also you have the .png file, go to some applications (3d paint on win10,..) which have eraser tool to remove pixels that the clothes dont use
- + For Cosplays:
+ + **For Cosplays**:
    - You should add a steve geometry json file then draw on it so the body,arm,leg can moving while player is moving 
    - Draw the texture to fit with the geometry
    - Then add json, png to just like clothes (but in cosplays folder).
