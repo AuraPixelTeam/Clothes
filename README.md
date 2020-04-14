@@ -19,7 +19,8 @@
  + If you want to remove perm, just remove something similar to : "sidecap: sidecap.perm".
    - Don't remove the "perms:" text in line 2 (it should be in line 2)
 
-## **How to add more clothes/cosplays**
+## **About clothes/cosplay**
+### How to add more clothes/cosplays
  + **For example**, you want to create a button named "Hat" in "/clo.When you click the button, you want to have a cloth named "Cowboy":
    - You go to plugins_data/clothes create a folder named "Hat"
    - Go inside "Hat" folder, put 2 files, one named Cowboy.json, one named Cowboy.png
@@ -27,7 +28,7 @@
  + **Note**:
    - The clothes must inside the plugins_data/clothes folder.
    - Do the same for Cosplays feature.
- ## **Where to get clothes/cosplays**
+### Where to get clothes/cosplays
  - You need to draw it, i'm using blockbench.net
  + **For Clothes**:
    - If you are new ,just importing the example clothes (.json file) in the plugin to the blockbench
