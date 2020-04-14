@@ -45,7 +45,11 @@
    - You should add a steve geometry json file then draw on it so the body,arm,leg can moving while player is moving 
    - Draw the texture to fit with the geometry
    - Then add json, png to just like clothes (but in cosplays folder).
- + If you having some problem just leave a comment under the poggit review or open a issue on github.
- ## **Introduce**
+ + If you having some problem just leave a comment under the poggit review or open a issue on github. 
+## **Introduce**
  + A video about the plugin:
    [![Youtube Introduce](https://img.youtube.com/vi/ZGMaG80Wi3g/0.jpg)](https://www.youtube.com/watch?v=ZGMaG80Wi3g)
+ ## **More Clothes**
+- You can go here to get some more clothes without drawing skill
+  - https://github.com/TungstenVn/Clothes-Addon
+<a align="center"><img src="https://i.ibb.co/K7pdzTS/Screenshot-10.png"></a>
