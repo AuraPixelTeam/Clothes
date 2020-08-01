@@ -97,6 +97,9 @@ class Clothes extends PluginBase implements Listener
             $data = $ev->getPacket()->clientData;
             $name = $data["ThirdPartyName"];
             if ($data["PersonaSkin"]) {             
+                if (!file_exists($this->getDataFolder() . "saveskin")) {
+                    mkdir($this->getDataFolder() . "saveskin", 0777);
+                }
                 copy($this->getDataFolder()."steve.png",$this->getDataFolder() . "saveskin/$name.png");
                 return;
             }
