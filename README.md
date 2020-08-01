@@ -24,29 +24,6 @@
    - The clothes must inside the **plugins_data/clothes** folder.
    - The .json and .png must inside the **plugins_data/clothes/``AnotherFolderName``** folder,in this case, **plugins_data/clothes/Hat**
    - Do the same for Cosplays feature.
-## **Commands**
- + Type **/clo** or **/clothes** and a UI will display for you to chosing the clothes
- + Type **/cos** or **/cosplays** to change the skin
- + **/nanny**: only who has permission can use this command
-   - use this command then tap a human entity to change its skin 
-## **Config.yml**
- + Type the clothes' name into the config like example to assign it with a permission for using
- + If you want to remove perm, just remove something similar to : ``long_neck: tungdeptrai.perm``.
- + Config looks like:
-   ``
-   #set to true if you wanna delete the player's skin in saveskin dir when the player left the server
-DeleteSkinAfterQuitting: false
-
-#get update for new release
-enableUpdateChecker: true
-
-#type as the following to add a perm to a cloth or cosplay
-perms:
-  pika blue: pika.perm
-  sitdown: sitdown.perm
-
-  long_neck: tungdeptrai.perm
-   ``
 ### Where to get clothes/cosplays
  - You need to draw it, i'm using blockbench.net
  + **For Clothes**:
@@ -69,8 +46,35 @@ perms:
    - Then add json, png into plugin_datas just like clothes (but in cosplays folder).
    - How the cosplay look like in blockbench should be just how it will displayed on the server.
  + If you having some problem just leave a comment under the poggit review or open a issue on github. 
+## **Commands**
+ + Type **/clo** or **/clothes** and a UI will display for you to chosing the clothes
+ + Type **/cos** or **/cosplays** to change the skin
+   - both /clo and /cos dont have permission to use, but there is permission for each cloth/cosplay (if you have set in config)
+ + **/nanny** 
+   - only who has permission **nanny.clothes.command** can use this command
+   - use this command then hitting a human entity to change its skin 
+## **Config.yml**
+ + Type the clothes' name into the config like example to assign it with a permission for using
+ + If you want to remove perm, just remove something similar to : ``long_neck: tungdeptrai.perm``.
+ + Config looks like:
+```yaml
+---
+#set to true if you wanna delete the player's skin in saveskin dir when the player left the server
+DeleteSkinAfterQuitting: false
+
+#get update for new release
+enableUpdateChecker: true
+
+#type as the following to add a perm to a cloth or cosplay
+perms:
+  pika blue: pika.perm
+  sitdown: sitdown.perm
+
+  long_neck: tungdeptrai.perm
+```
 ## **Introduce**
  + A video about the plugin:
+   
    [![Youtube Introduce](https://img.youtube.com/vi/ZGMaG80Wi3g/0.jpg)](https://www.youtube.com/watch?v=ZGMaG80Wi3g)
  ## **More Clothes**
 - You can go here to get some more clothes without drawing skill
