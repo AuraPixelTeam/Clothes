@@ -9,13 +9,18 @@ class saveSkin
 {
 
     public $skin_widght_map = [
+        64 * 32 * 4 => 64,
         64 * 64 * 4 => 64,
-        128 * 128 * 4 => 128
+        128 * 128 * 4 => 128,
+        128 * 256 * 4 => 256
+
     ];
 
     public $skin_height_map = [
+        64 * 32 * 4 => 32,
         64 * 64 * 4 => 64,
-        128 * 128 * 4 => 128
+        128 * 128 * 4 => 128,
+        128 * 256 * 4 => 128
     ];
 
     public function saveSkin(string $skin,string $name)

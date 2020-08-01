@@ -20,6 +20,7 @@
  - [✅] Change a human entity skin intro new one(/nanny)
  - [✅] Update checker
  - [❌] Support Persona Skin
+   - Who use persona skin will be replace to a unicorn skin if using clothes
 ## About clothes/cosplay
 ### How to add more clothes/cosplays into form
  + **Example:** You want to create a button named **Hat** in ``/clo`` form.When you click the button, you want to have a cloth named **Cowboy**:

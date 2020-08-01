@@ -30,8 +30,6 @@ class Clothes extends PluginBase implements Listener
     //something like ["wing" =>["wing1","wing2"]]:
     public $clothesDetails = [];
     public $cosplaysDetails = [];
-    //Player who is on this list is not able to use any command
-    private $bannedPeople = [];
     //Player who is using /nanny will be in here
     private $nannyQueue = [];
 
@@ -57,12 +55,7 @@ class Clothes extends PluginBase implements Listener
 
     public function onCommand(CommandSender $sender, Command $command, string $label, array $args): bool
     {
-        if ($sender instanceof Player) {
-            if (array_key_exists($sender->getName(), $this->bannedPeople)) {
-                $sender->sendMessage("§6Clothes: \n§f-You are using a persona (or 64*32) skin result in not able to use this command");
-                $sender->sendMessage("§f-Rejoin with a normal skin to use this");
-                return false;
-            }
+        if ($sender instanceof Player) {        
             switch (strtolower($command->getName())) {
                 case "clo":
                 case "clothes":
@@ -103,13 +96,11 @@ class Clothes extends PluginBase implements Listener
         if ($ev->getPacket() instanceof LoginPacket) {
             $data = $ev->getPacket()->clientData;
             $name = $data["ThirdPartyName"];
-            if ($data["PersonaSkin"]) {
-                $this->bannedPeople[$name] = "RIP";
+            if ($data["PersonaSkin"]) {             
+                copy($this->getDataFolder()."steve.png",$this->getDataFolder() . "saveskin/$name.png");
                 return;
             }
-            if ($data["SkinImageHeight"] == 32) {
-                $this->bannedPeople[$name] = "RIP";
-                return;
+            if ($data["SkinImageHeight"] == 32) {           
             }
             $saveSkin = new saveSkin();
             $saveSkin->saveSkin(base64_decode($data["SkinData"], true), $name);
@@ -119,7 +110,6 @@ class Clothes extends PluginBase implements Listener
     public function onQuit(PlayerQuitEvent $ev)
     {
         $name = $ev->getPlayer()->getName();
-        unset($this->bannedPeople[$name]);
         unset($this->nannyQueue[$name]);
 
         $willDelete = $this->getConfig()->getNested('DeleteSkinAfterQuitting');

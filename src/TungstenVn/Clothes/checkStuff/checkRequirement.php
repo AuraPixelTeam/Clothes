@@ -21,7 +21,7 @@ class checkRequirement
             $main->getServer()->getPluginManager()->disablePlugin($main);
             return;
         }
-        if (!file_exists($main->getDataFolder() . "steve.json") || !file_exists($main->getDataFolder() . "config.yml")) {
+        if (!file_exists($main->getDataFolder() . "steve.png") || !file_exists($main->getDataFolder() . "steve.json") || !file_exists($main->getDataFolder() . "config.yml")) {
             if (file_exists(str_replace("config.yml", "", $main->getResources()["config.yml"]))) {
                 $var = new copyResource();
                 $var->recurse_copy(str_replace("config.yml", "", $main->getResources()["config.yml"]), $main->getDataFolder());
