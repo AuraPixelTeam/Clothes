@@ -14,7 +14,7 @@
   - GD2 extension required, do as following construction on the console's message (in case you dont know what it is)
   - FormAPI lib required, download this plugin (Clothes) from poggit (which will be .phar type) if you dont similar to this
   - That's all
-## **About clothes/cosplay**
+## About clothes/cosplay
 ### How to add more clothes/cosplays into form
  + **Example:** You want to create a button named **Hat** in ``/clo`` form.When you click the button, you want to have a cloth named **Cowboy**:
    - You go to plugins_data/clothes create a folder named **Hat**
@@ -36,7 +36,7 @@
 	 - texture can be in 64x64 or 128x128
 	 - (And the way i do it is that I import a steve skin, than draw the extra texture in empty spot,than delete the steve piece after finished)
    - Then save the json and texture file with same name.
-   - After you have the json file, go into it and change the geometry's name to ``geometry.**abc**/**xyz**``
+   - After you have the json file, go into it and change the geometry's name to **geometry.``abc``/``xyz``**
      - **abc** is **clothes** or **cosplays**. **xyz** is the folder's name which is contained the clothes/cosplays
 	 - if you do the tutorial at [About clothes/cosplay](#About clothes/cosplay), the geometry's name should be **geometry.clothes/Hat**
    - And also you have the .png file, go to some applications (3d paint on win10,..) which have eraser tool to remove pixels that the clothes dont use
@@ -46,14 +46,14 @@
    - Then add json, png into plugin_datas just like clothes (but in cosplays folder).
    - How the cosplay look like in blockbench should be just how it will displayed on the server.
  + If you having some problem just leave a comment under the poggit review or open a issue on github. 
-## **Commands**
+## Commands
  + Type **/clo** or **/clothes** and a UI will display for you to chosing the clothes
  + Type **/cos** or **/cosplays** to change the skin
    - both /clo and /cos dont have permission to use, but there is permission for each cloth/cosplay (if you have set in config)
  + **/nanny** 
    - only who has permission **nanny.clothes.command** can use this command
    - use this command then hitting a human entity to change its skin 
-## **Config.yml**
+## Config.yml
  + Type the clothes' name into the config like example to assign it with a permission for using
  + If you want to remove perm, just remove something similar to : ``long_neck: tungdeptrai.perm``.
  + Config looks like:
@@ -72,11 +72,11 @@ perms:
 
   long_neck: tungdeptrai.perm
 ```
-## **Introduce**
+## Introduce
  + A video about the plugin:
    
    [![Youtube Introduce](https://img.youtube.com/vi/ZGMaG80Wi3g/0.jpg)](https://www.youtube.com/watch?v=ZGMaG80Wi3g)
- ## **More Clothes**
+## More Clothes
 - You can go here to get some more clothes without drawing skill
   - https://github.com/TungstenVn/Clothes-Addon
 <a align=**center**><img src=**https://i.ibb.co/K7pdzTS/Screenshot-10.png**></a>
