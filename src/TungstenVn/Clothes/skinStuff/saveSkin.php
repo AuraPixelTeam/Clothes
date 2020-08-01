@@ -8,30 +8,23 @@ use TungstenVn\Clothes\Clothes;
 class saveSkin
 {
 
-    public $acceptedSkinSize = [
-        64 * 32 * 4,
-        64 * 64 * 4,
-        128 * 128 * 4
-    ];
     public $skin_widght_map = [
-        64 * 32 * 4 => 64,
         64 * 64 * 4 => 64,
         128 * 128 * 4 => 128
     ];
 
     public $skin_height_map = [
-        64 * 32 * 4 => 32,
         64 * 64 * 4 => 64,
         128 * 128 * 4 => 128
     ];
 
-    public function saveSkin(Skin $skin, $name)
+    public function saveSkin(string $skin,string $name)
     {
         $path = Clothes::$instance->getDataFolder();
         if (!file_exists($path . "saveskin")) {
             mkdir($path . "saveskin", 0777);
         }
-        $img = $this->skinDataToImage($skin->getSkinData());
+        $img = $this->skinDataToImage($skin);
         if ($img == null) {
             return;
         }
@@ -39,20 +32,16 @@ class saveSkin
     }
 
     // taken from https://github.com/thebigsmileXD/skinapi/blob/master/src/xenialdan/skinapi/API.php
-    public function skinDataToImage($skinData)
+    //https://github.com/HimbeersaftLP/LibSkin/blob/master/LibSkin/src/Himbeer/LibSkin/LibSkin.php
+    public function skinDataToImage(string $skinData)
     {
         $size = strlen($skinData);
-        if (!$this->validateSize((int)$size)) {
-            #Clothes::$instance->getServer()->getPluginManager()->disablePlugin(Clothes::$instance);
-            Clothes::$instance->getServer()->broadcastMessage("An error occur on Clothes plugin, id: 1");
-            return null;
-        }
+
         $width = $this->skin_widght_map[$size];
         $height = $this->skin_height_map[$size];
         $skinPos = 0;
         $image = imagecreatetruecolor($width, $height);
         if ($image === false) {
-            #Clothes::$instance->getServer()->getPluginManager()->disablePlugin(Clothes::$instance);
             Clothes::$instance->getServer()->broadcastMessage("An error occur on Clothes plugin,id: 2");
             return null;
         }
@@ -76,12 +65,4 @@ class saveSkin
         return $image;
     }
 
-    //https://github.com/HimbeersaftLP/LibSkin/blob/master/LibSkin/src/Himbeer/LibSkin/LibSkin.php
-    public function validateSize(int $size)
-    {
-        if (!in_array($size, $this->acceptedSkinSize)) {
-            return false;
-        }
-        return true;
-    }
 }

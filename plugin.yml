@@ -1,18 +1,20 @@
 ---
 name: Clothes
-version: 3.1.0
+version: 4.1.0
 main: TungstenVn\Clothes\Clothes
 api:
 - 3.0.0
 author: TungstenVn
 commands:
   clo:
-    description: Open clothes menu
+    description: Clothes commands
   clothes:
-    description: Open clothes menu
+    description: Clothes commands
   cos:
-    description: Open cosplay menu
+    description: Clothes commands
   cosplays:
-    description: Open cosplay menu
-
+    description: Clothes commands
+  nanny:
+    description: Clothes commands
+    permission: nanny.clothes.command
 ...

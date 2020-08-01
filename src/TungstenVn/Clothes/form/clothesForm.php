@@ -108,6 +108,7 @@ class clothesForm
 
     public function resetSkin(Player $player)
     {
+
         $player->sendMessage("§aReset to original skin successfull");
         $reset = new resetSkin();
         $reset->setSkin($player);

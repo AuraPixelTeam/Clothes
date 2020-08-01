@@ -2,50 +2,72 @@
 [![](https://poggit.pmmp.io/shield.state/Clothes)](https://poggit.pmmp.io/p/Clothes)
 [![](https://poggit.pmmp.io/shield.dl.total/Clothes)](https://poggit.pmmp.io/p/Clothes)
 [![Discord](https://img.shields.io/badge/chat-on+discord-7289da.svg)](https://discord.gg/5CpFadd)
-<a href="https://discord.gg/5CpFadd"><img src="https://discordapp.com/api/guilds/472786873492832256/embed.png" alt="Discord server"/></a>
+[![HitCount](http://hits.dwyl.com/tungstenvn/clothes.svg)](http://hits.dwyl.com/tungstenvn/clothes)
+
+![GIF](https://github.com/TungstenVn/TungstenVn_poggit_news/blob/master/ezgif-5-0ce7417bfc97.gif)
+
 ### Make your skin more splendid
 + **Why would you need to use this plugin:**
-  - You dont,but this plugin will help your server more funny cuz player have something to show up, a wing, a caption american shield.
+  - This plugin will help your server more funny cuz player have something to show up, a wing, a caption american shield and so on.
   - The clothes also has permission for using,so that you can add the custom clothes to specific rank   
 + **Note of the plugin:**
   - GD2 extension required, do as following construction on the console's message (in case you dont know what it is)
   - FormAPI lib required, download this plugin (Clothes) from poggit (which will be .phar type) if you dont similar to this
   - That's all
+## **About clothes/cosplay**
+### How to add more clothes/cosplays into form
+ + **Example:** You want to create a button named **Hat** in ``/clo`` form.When you click the button, you want to have a cloth named **Cowboy**:
+   - You go to plugins_data/clothes create a folder named **Hat**
+   - Go inside **Hat** folder, put 2 files, one named **Cowboy.json**, one named **Cowboy.png**
+   - Then it should be works
+ + **Note**:
+   - The clothes must inside the **plugins_data/clothes** folder.
+   - The .json and .png must inside the **plugins_data/clothes/``AnotherFolderName``** folder,in this case, **plugins_data/clothes/Hat**
+   - Do the same for Cosplays feature.
 ## **Commands**
- + Type "/clo" or "/clothes" and a UI will display for you to chosing the clothes
- + Type "/cos" or "/cosplays" to change the skin
+ + Type **/clo** or **/clothes** and a UI will display for you to chosing the clothes
+ + Type **/cos** or **/cosplays** to change the skin
+ + **/nanny**: only who has permission can use this command
+   - use this command then tap a human entity to change its skin 
 ## **Config.yml**
  + Type the clothes' name into the config like example to assign it with a permission for using
- + If you want to remove perm, just remove something similar to : "sidecap: sidecap.perm".
-   - Don't remove the "perms:" text in line 2 (it should be in line 2)
+ + If you want to remove perm, just remove something similar to : ``long_neck: tungdeptrai.perm``.
+ + Config looks like:
+   ``
+   #set to true if you wanna delete the player's skin in saveskin dir when the player left the server
+DeleteSkinAfterQuitting: false
 
-## **About clothes/cosplay**
-### How to add more clothes/cosplays
- + **For example**, you want to create a button named "Hat" in "/clo.When you click the button, you want to have a cloth named "Cowboy":
-   - You go to plugins_data/clothes create a folder named "Hat"
-   - Go inside "Hat" folder, put 2 files, one named Cowboy.json, one named Cowboy.png
-   - Then it would be works
- + **Note**:
-   - The clothes must inside the plugins_data/clothes folder.
-   - Do the same for Cosplays feature.
+#get update for new release
+enableUpdateChecker: true
+
+#type as the following to add a perm to a cloth or cosplay
+perms:
+  pika blue: pika.perm
+  sitdown: sitdown.perm
+
+  long_neck: tungdeptrai.perm
+   ``
 ### Where to get clothes/cosplays
  - You need to draw it, i'm using blockbench.net
  + **For Clothes**:
-   - If you are new ,just importing the example clothes (.json file) in the plugin to the blockbench
-   - Now you can see a steve geometry with the wing or shield, you can delete the wing/shield
+   - First of all,youtube how to use blockbench
+   - If you are new ,just importing some random clothes (.json file) inside the plugin datas folder to the blockbench
+   - Now you can see a steve geometry with some extra cube(geometry), you can delete that cube or add more
      - but DO NOT touch the steve geometry
    - Move to the texture, add the example texture to see how i drawed it, you need to find a unuse spot
      - on the texture, draw on it, maybe in the neck, empty spot,etc.
 	 - texture can be in 64x64 or 128x128
+	 - (And the way i do it is that I import a steve skin, than draw the extra texture in empty spot,than delete the steve piece after finished)
    - Then save the json and texture file with same name.
-   - After you have the json file, go into it and change the geometry's name to "geometry.**abc**/**xyz**"
-     - **abc** is **clothes** or **cosplays**. **xyz** is the folder's named which contain the clothes/cosplays
-	 - if you do the tutorial at **How to add more clothes/cosplays**, the geometry's name will be **geometry.clothes/Hat**
+   - After you have the json file, go into it and change the geometry's name to ``geometry.**abc**/**xyz**``
+     - **abc** is **clothes** or **cosplays**. **xyz** is the folder's name which is contained the clothes/cosplays
+	 - if you do the tutorial at [About clothes/cosplay](#About clothes/cosplay), the geometry's name should be **geometry.clothes/Hat**
    - And also you have the .png file, go to some applications (3d paint on win10,..) which have eraser tool to remove pixels that the clothes dont use
  + **For Cosplays**:
    - You should add a steve geometry json file then draw on it so the body,arm,leg can moving while player is moving 
    - Draw the texture to fit with the geometry
-   - Then add json, png to just like clothes (but in cosplays folder).
+   - Then add json, png into plugin_datas just like clothes (but in cosplays folder).
+   - How the cosplay look like in blockbench should be just how it will displayed on the server.
  + If you having some problem just leave a comment under the poggit review or open a issue on github. 
 ## **Introduce**
  + A video about the plugin:
@@ -53,4 +75,4 @@
  ## **More Clothes**
 - You can go here to get some more clothes without drawing skill
   - https://github.com/TungstenVn/Clothes-Addon
-<a align="center"><img src="https://i.ibb.co/K7pdzTS/Screenshot-10.png"></a>
+<a align=**center**><img src=**https://i.ibb.co/K7pdzTS/Screenshot-10.png**></a>

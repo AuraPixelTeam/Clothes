@@ -4,17 +4,21 @@ namespace TungstenVn\Clothes;
 
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
+use pocketmine\entity\Human;
+use pocketmine\entity\Skin;
+use pocketmine\event\entity\EntityDamageByEntityEvent;
 use pocketmine\event\Listener;
-use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\event\player\PlayerQuitEvent;
+use pocketmine\event\server\DataPacketReceiveEvent;
+use pocketmine\network\mcpe\protocol\LoginPacket;
 use pocketmine\Player;
 use pocketmine\plugin\PluginBase;
-
+use TungstenVn\Clothes\checkStuff\checkClothes;
+use TungstenVn\Clothes\checkStuff\checkRequirement;
 use TungstenVn\Clothes\form\clothesForm;
 use TungstenVn\Clothes\form\cosplaysForm;
 use TungstenVn\Clothes\skinStuff\saveSkin;
-use TungstenVn\Clothes\checkStuff\checkRequirement;
-use TungstenVn\Clothes\checkStuff\checkClothes;
+
 class Clothes extends PluginBase implements Listener
 {
     /** @var self $instance */
@@ -26,6 +30,12 @@ class Clothes extends PluginBase implements Listener
     //something like ["wing" =>["wing1","wing2"]]:
     public $clothesDetails = [];
     public $cosplaysDetails = [];
+    //Player who is on this list is not able to use any command
+    private $bannedPeople = [];
+    //Player who is using /nanny will be in here
+    private $nannyQueue = [];
+
+
 
     public function onEnable()
     {
@@ -38,11 +48,21 @@ class Clothes extends PluginBase implements Listener
         $a = new checkClothes();
         $a->checkClothes();
         $a->checkCos();
+
+        $config = $this->getConfig();
+        if ($config->getNested("enableUpdateChecker") != false) {
+            $this->getServer()->getAsyncPool()->submitTask(new checkUpdate());
+        }
     }
 
-    public function onCommand(CommandSender $sender, Command $command, String $label, array $args): bool
+    public function onCommand(CommandSender $sender, Command $command, string $label, array $args): bool
     {
         if ($sender instanceof Player) {
+            if (array_key_exists($sender->getName(), $this->bannedPeople)) {
+                $sender->sendMessage("§6Clothes: \n§f-You are using a persona (or 64*32) skin result in not able to use this command");
+                $sender->sendMessage("§f-Rejoin with a normal skin to use this");
+                return false;
+            }
             switch (strtolower($command->getName())) {
                 case "clo":
                 case "clothes":
@@ -54,26 +74,59 @@ class Clothes extends PluginBase implements Listener
                     $form = new cosplaysForm($this);
                     $form->mainform($sender, "");
                     break;
+                case "nanny":
+                    $this->nannyQueue[$sender->getName()] = "OK";
+                    $sender->sendMessage("§aTap a slapper to change skin");
+                    break;
             }
         } else {
             $sender->sendMessage("§cOnly work in game");
         }
         return true;
     }
-
-    public function onJoin(PlayerJoinEvent $e)
+    public function onHitEntity(EntityDamageByEntityEvent $ev){
+        $entity = $ev->getEntity();
+        $player = $ev->getDamager();
+        if($player instanceof Player){
+            if(array_key_exists($player->getName(),$this->nannyQueue)){
+                if($entity instanceof Human and !$entity instanceof Player){
+                    $entity->setSkin($player->getSkin());
+                    $entity->sendSkin();
+                    unset($this->nannyQueue[$player->getName()]);
+                    $player->sendMessage("§aSuccessfully changing entity skin");
+                }
+            }
+        }
+    }
+    public function dataReceiveEv(DataPacketReceiveEvent $ev)
     {
-        $name = $e->getPlayer()->getName();
-        $skin = $e->getPlayer()->getSkin();
-        if (preg_replace('/\s+/', '', $skin->getGeometryData()) != preg_replace('/\s+/', '', file_get_contents($this->getDataFolder() . "steve.json"))) {
-            $this->getServer()->broadcastMessage("§bClothes: §rPlayer §6" . strtolower($name) . "§r is using default/4d skin");
-            return;
+        if ($ev->getPacket() instanceof LoginPacket) {
+            $data = $ev->getPacket()->clientData;
+            $name = $data["ThirdPartyName"];
+            if ($data["PersonaSkin"]) {
+                $this->bannedPeople[$name] = "RIP";
+                return;
+            }
+            if ($data["SkinImageHeight"] == 32) {
+                $this->bannedPeople[$name] = "RIP";
+                return;
+            }
+            $saveSkin = new saveSkin();
+            $saveSkin->saveSkin(base64_decode($data["SkinData"], true), $name);
         }
-        if (strlen($skin->getSkinData()) == 8192) {
-            $this->getServer()->broadcastMessage("§bClothes: §rPlayer §6" . strtolower($name) . "§r is using 64x32 skin size");
-            return;
+    }
+
+    public function onQuit(PlayerQuitEvent $ev)
+    {
+        $name = $ev->getPlayer()->getName();
+        unset($this->bannedPeople[$name]);
+        unset($this->nannyQueue[$name]);
+
+        $willDelete = $this->getConfig()->getNested('DeleteSkinAfterQuitting');
+        if ($willDelete) {
+            if (file_exists($this->getDataFolder() . "saveskin/$name.png")) {
+                unlink($this->getDataFolder() . "saveskin/$name.png");
+            }
         }
-        $saveSkin = new saveSkin();
-        $saveSkin->saveSkin($skin, $name);
     }
 }

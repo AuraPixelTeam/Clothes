@@ -15,9 +15,7 @@ class resetSkin
         $skin = $player->getSkin();
         $name = $player->getName();
         $path = Clothes::$instance->getDataFolder() . "saveskin/" . $name . ".png";
-        if(!file_exists($path)){
-            $path = Clothes::$instance->getDataFolder()."steve.png";
-        }
+
         $img = @imagecreatefrompng($path);
         $size = getimagesize($path);
         $skinbytes = "";

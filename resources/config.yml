@@ -1,6 +1,13 @@
 ---
-perms:
-  sidecap: sidecap.perm
-  Angel_2: Angel2.perm
+#set to true if you wanna delete the player's skin in saveskin dir when the player left the server
+DeleteSkinAfterQuitting: false
 
-  short_neck: shor_neck.perm
+#get update for new release
+enableUpdateChecker: true
+
+#type as the following to add a perm to a cloth or cosplay
+perms:
+  pika blue: pika.perm
+  sitdown: sitdown.perm
+
+  long_neck: tungdeptrai.perm
