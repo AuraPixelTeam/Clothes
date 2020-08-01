@@ -14,6 +14,12 @@
   - GD2 extension required, do as following construction on the console's message (in case you dont know what it is)
   - FormAPI lib required, download this plugin (Clothes) from poggit (which will be .phar type) if you dont similar to this
   - That's all
+## All Features
+ - [✅] Add some extra geometry into player skin (/clo)
+ - [✅] Change entire player skin into new one (/cos)
+ - [✅] Change a human entity skin intro new one(/nanny)
+ - [✅] Update checker
+ - [❌] Support Persona Skin
 ## About clothes/cosplay
 ### How to add more clothes/cosplays into form
  + **Example:** You want to create a button named **Hat** in ``/clo`` form.When you click the button, you want to have a cloth named **Cowboy**:
