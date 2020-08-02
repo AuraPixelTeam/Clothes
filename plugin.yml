@@ -2,8 +2,8 @@
 name: Clothes
 version: 4.1.0
 main: TungstenVn\Clothes\Clothes
-api:
-- 3.0.0
+api: 3.0.0
+mcpe-protocol: [361, 388, 389, 390, 407]
 author: TungstenVn
 commands:
   clo:
