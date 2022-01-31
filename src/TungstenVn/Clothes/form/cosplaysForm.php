@@ -2,7 +2,7 @@
 
 namespace TungstenVn\Clothes\form;
 
-use pocketmine\Player;
+use pocketmine\player\Player;
 use TungstenVn\Clothes\Clothes;
 
 use jojoe77777\FormAPI\SimpleForm;
@@ -67,7 +67,7 @@ class cosplaysForm
 
             $perms = $this->clo->getConfig()->getNested('perms');
             if (array_key_exists($this->clo->cosplaysDetails[$cosplaysName][$result], $perms)) {
-                if ($player->hasPermission($perms[$this->clo->cosplaysDetails[$cosplaysName][$result]])) {
+                if ($player->hasPermission($perms[$this->clo->cosplaysDetails[$cosplaysName][$result]])) { //If you have an op and you still can't use the clothes, don't rush to claim that the clothes are faulty. in PM4 when you have op but you also have to setPermission for yourself to use these clothes.
                     $setskin = new setSkin();
                     $setskin->cosplays_setSkin($player, $this->clo->cosplaysDetails[$cosplaysName][$result], $this->clo->cosplaysTypes[$type]);
                 } else {
@@ -86,7 +86,7 @@ class cosplaysForm
             foreach ($this->clo->cosplaysDetails[$cosplaysName] as $value) {
                 $perms = $this->clo->getConfig()->getNested('perms');
                 if (array_key_exists($value, $perms)) {
-                    if ($player->hasPermission($perms[$value])) {
+                    if ($player->hasPermission($perms[$value])) { //If you have an op and you still can't use the clothes, don't rush to claim that the clothes are faulty. in PM4 when you have op but you also have to setPermission for yourself to use these clothes.
                         $form->addButton($value, 0, "textures/ui/check");
                     } else {
                         $form->addButton($value, 0, "textures/ui/icon_lock");
