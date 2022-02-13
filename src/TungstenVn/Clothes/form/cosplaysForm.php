@@ -86,7 +86,7 @@ class cosplaysForm
             foreach ($this->clo->cosplaysDetails[$cosplaysName] as $value) {
                 $perms = $this->clo->getConfig()->getNested('perms');
                 if (array_key_exists($value, $perms)) {
-                    if ($player->hasPermission($perms[$value])) { //If you have an op and you still can't use the clothes, don't rush to claim that the clothes are faulty. in PM4 when you have op but you also have to setPermission for yourself to use these clothes.
+                    if ($player->hasPermission($perms[$value])) {
                         $form->addButton($value, 0, "textures/ui/check");
                     } else {
                         $form->addButton($value, 0, "textures/ui/icon_lock");
