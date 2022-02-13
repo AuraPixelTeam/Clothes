@@ -29,10 +29,6 @@ class checkUpdate extends AsyncTask
         $content = yaml_parse($content);
         $this->setResult($content);
     }
-
-    /**
-     * @param Server $server
-     */
     public function onCompletion(): void
     {
         if (is_null($clo = Clothes::$instance)) {
