@@ -3,7 +3,7 @@
 namespace TungstenVn\Clothes\skinStuff;
 
 use pocketmine\entity\Skin;
-use pocketmine\Player;
+use pocketmine\player\Player;
 use TungstenVn\Clothes\Clothes;
 
 class resetSkin

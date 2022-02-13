@@ -11,7 +11,8 @@ use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerQuitEvent;
 use pocketmine\event\server\DataPacketReceiveEvent;
 use pocketmine\network\mcpe\protocol\LoginPacket;
-use pocketmine\Player;
+use pocketmine\network\mcpe\JwtUtils;
+use pocketmine\player\Player;
 use pocketmine\plugin\PluginBase;
 use TungstenVn\Clothes\checkStuff\checkClothes;
 use TungstenVn\Clothes\checkStuff\checkRequirement;
@@ -35,7 +36,7 @@ class Clothes extends PluginBase implements Listener
 
 
 
-    public function onEnable()
+    public function onEnable(): void
     {
         self::$instance = $this;
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
@@ -57,12 +58,12 @@ class Clothes extends PluginBase implements Listener
     {
         if ($sender instanceof Player) {        
             switch (strtolower($command->getName())) {
-                case "clo":
+                #case "clo":
                 case "clothes":
                     $form = new clothesForm($this);
                     $form->mainform($sender, "");
                     break;
-                case "cos":
+                #case "cos":
                 case "cosplay":
                     $form = new cosplaysForm($this);
                     $form->mainform($sender, "");
@@ -94,19 +95,19 @@ class Clothes extends PluginBase implements Listener
     public function dataReceiveEv(DataPacketReceiveEvent $ev)
     {
         if ($ev->getPacket() instanceof LoginPacket) {
-            $data = $ev->getPacket()->clientData;
-            $name = $data["ThirdPartyName"];
-            if ($data["PersonaSkin"]) {             
+            $data = JwtUtils::parse($ev->getPacket()->clientDataJwt);
+            $name = $data[1]["ThirdPartyName"];
+            if ($data[1]["PersonaSkin"]) {             
                 if (!file_exists($this->getDataFolder() . "saveskin")) {
                     mkdir($this->getDataFolder() . "saveskin", 0777);
                 }
                 copy($this->getDataFolder()."steve.png",$this->getDataFolder() . "saveskin/$name.png");
                 return;
             }
-            if ($data["SkinImageHeight"] == 32) {           
+            if ($data[1]["SkinImageHeight"] == 32) {           
             }
             $saveSkin = new saveSkin();
-            $saveSkin->saveSkin(base64_decode($data["SkinData"], true), $name);
+            $saveSkin->saveSkin(base64_decode($data[1]["SkinData"], true), $name);
         }
     }
 

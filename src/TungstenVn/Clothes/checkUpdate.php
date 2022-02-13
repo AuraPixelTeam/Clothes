@@ -33,7 +33,7 @@ class checkUpdate extends AsyncTask
     /**
      * @param Server $server
      */
-    public function onCompletion(Server $server): void
+    public function onCompletion(): void
     {
         if (is_null($clo = Clothes::$instance)) {
             return;

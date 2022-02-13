@@ -2,19 +2,30 @@
 name: Clothes
 version: 5.0
 main: TungstenVn\Clothes\Clothes
-api: 3.0.0
-mcpe-protocol: [361, 388, 389, 390, 407, 408, 418, 428, 440]
+api: 4.0.0
+mcpe-protocol: [361, 388, 389, 390, 407, 408, 418, 428, 440, 471, 475]
 author: TungstenVn
 commands:
-  clo:
-    description: Clothes commands
   clothes:
     description: Clothes commands
-  cos:
-    description: Clothes commands
+    aliases: ["clo"]
+    permission: clothes.command
   cosplays:
     description: Clothes commands
+    aliases: ["cos"]
+    permission: cosplays.command
   nanny:
     description: Clothes commands
     permission: nanny.clothes.command
+
+permissions:
+  clothes.command:
+    description: Clothes commands
+    default: true
+  cosplays.command:
+    description: Clothes commands
+    default: true 
+  nanny.clothes.command:
+    description: Clothes commands
+    default: op
 ...
