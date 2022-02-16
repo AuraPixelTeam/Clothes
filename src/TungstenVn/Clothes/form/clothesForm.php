@@ -5,7 +5,7 @@ namespace TungstenVn\Clothes\form;
 use pocketmine\player\Player;
 use TungstenVn\Clothes\Clothes;
 
-use jojoe77777\FormAPI\SimpleForm;
+use TungstenVn\Clothes\libs\jojoe77777\FormAPI\SimpleForm;
 use TungstenVn\Clothes\skinStuff\resetSkin;
 use TungstenVn\Clothes\skinStuff\setSkin;
 
