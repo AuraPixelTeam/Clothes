@@ -7,6 +7,6 @@ projects:
     path: ""
     icon: icon.png
     libs:
-    - src: jojoe77777/FormAPI
+    - src: jojoe77777/FormAPI/libsFormAPI
       version: ^1.3
 ...
