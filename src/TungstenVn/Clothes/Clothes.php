@@ -64,7 +64,7 @@ class Clothes extends PluginBase implements Listener
                     $form->mainform($sender, "");
                     break;
                 #case "cos":
-                case "cosplay":
+                case "cosplays":
                     $form = new cosplaysForm($this);
                     $form->mainform($sender, "");
                     break;
