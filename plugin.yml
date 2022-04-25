@@ -2,8 +2,9 @@
 name: Clothes
 version: 6.3
 main: TungstenVn\Clothes\Clothes
+src-namespace-prefix: TungstenVn\Clothes
 api: 4.0.0
-mcpe-protocol: [361, 388, 389, 390, 407, 408, 418, 428, 440, 471, 475, 486]
+mcpe-protocol: [475, 486, 503]
 author: TungstenVn
 authors:
   - DavidGlitch04

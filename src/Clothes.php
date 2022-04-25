@@ -5,7 +5,6 @@ namespace TungstenVn\Clothes;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\entity\Human;
-use pocketmine\entity\Skin;
 use pocketmine\event\entity\EntityDamageByEntityEvent;
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerQuitEvent;
@@ -19,6 +18,7 @@ use TungstenVn\Clothes\checkStuff\checkRequirement;
 use TungstenVn\Clothes\form\clothesForm;
 use TungstenVn\Clothes\form\cosplaysForm;
 use TungstenVn\Clothes\skinStuff\saveSkin;
+use TungstenVn\Clothes\updater\GetUpdateInfo;
 
 class Clothes extends PluginBase implements Listener
 {
@@ -34,8 +34,6 @@ class Clothes extends PluginBase implements Listener
     //Player who is using /nanny will be in here
     private $nannyQueue = [];
 
-
-
     public function onEnable(): void
     {
         self::$instance = $this;
@@ -49,9 +47,11 @@ class Clothes extends PluginBase implements Listener
         $a->checkCos();
 
         $config = $this->getConfig();
-        if ($config->getNested("enableUpdateChecker") != false) {
-            $this->getServer()->getAsyncPool()->submitTask(new checkUpdate());
-        }
+        $this->checkUpdater();
+    }
+
+    protected function checkUpdater() : void {
+        $this->getServer()->getAsyncPool()->submitTask(new GetUpdateInfo($this, "https://raw.githubusercontent.com/AngelliaX/Clothes/master/poggit_news.json"));
     }
 
     public function onCommand(CommandSender $sender, Command $command, string $label, array $args): bool
@@ -122,5 +122,13 @@ class Clothes extends PluginBase implements Listener
                 unlink($this->getDataFolder() . "saveskin/$name.png");
             }
         }
+    }
+
+    public static function getInstance(): Clothes{
+        return self::$instance;
+    }
+
+    public function getFileHack() {
+        return $this->getFile();
     }
 }
