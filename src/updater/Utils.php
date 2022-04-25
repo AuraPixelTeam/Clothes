@@ -71,14 +71,14 @@ class Utils{
      */
 	public static function compareVersions(string $base, string $new) : int {
         $baseParts = explode(".",$base);
-        $baseParts[2] = explode("-beta",$baseParts[2])[0];
-        if(sizeof(explode("-beta",explode(".",$base)[2])) >1){
-            $baseParts[3] = explode("-beta",explode(".",$base)[2])[1];
+        $baseParts[1] = explode("-beta",$baseParts[1])[0];
+        if(sizeof(explode("-beta",explode(".",$base)[1])) >1){
+            $baseParts[3] = explode("-beta",explode(".",$base)[1])[1];
         }
         $newParts = explode(".",$new);
-        $newParts[2] = explode("-beta",$newParts[2])[0];
-        if(sizeof(explode("-beta",explode(".",$new)[2])) >1){
-            $newParts[3] = explode("-beta",explode(".",$new)[2])[1];
+        $newParts[1] = explode("-beta",$newParts[1])[0];
+        if(sizeof(explode("-beta",explode(".",$new)[1])) >1){
+            $newParts[3] = explode("-beta",explode(".",$new)[1])[1];
         }
         if(intval($newParts[0]) > intval($baseParts[0])){
             return 1;
@@ -92,18 +92,12 @@ class Utils{
         if(intval($newParts[1]) < intval($baseParts[1])){
             return -1;
         }
-        if(intval($newParts[2]) > intval($baseParts[2])){
-            return 1;
-        }
-        if(intval($newParts[2]) < intval($baseParts[2])){
-            return -1;
-        }
-        if(isset($baseParts[3])){
-            if(isset($newParts[3])){
-                if(intval($baseParts[3]) > intval($newParts[3])){
+        if(isset($baseParts[2])){
+            if(isset($newParts[2])){
+                if(intval($baseParts[2]) > intval($newParts[2])){
                     return -1;
                 }
-                if(intval($baseParts[3]) < intval($newParts[3])){
+                if(intval($baseParts[2]) < intval($newParts[2])){
                     return 1;
                 }
             } else {
