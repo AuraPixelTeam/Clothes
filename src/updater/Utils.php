@@ -36,7 +36,7 @@ class Utils{
                     Server::getInstance()->getLogger()->warning("                §c" .$lines[$i]);
                 }
                 Server::getInstance()->getLogger()->warning("§dUpdate Link :: " . $data["Response"]["link"]);
-                Server::getInstance()->getLogger()->warning("Update file was install in plugin_data/MultiPlayerCounter");
+                Server::getInstance()->getLogger()->warning("Update file was install in plugin_data/Clothes");
             } else {
                 if ($update < 0) Server::getInstance()->getLogger()->debug("Running a build not yet released, this can cause un intended side effects (including possible data loss)");
                 return;
@@ -57,9 +57,9 @@ class Utils{
      * @return void
      */
     protected static function downloadUpdate(string $url) : void {
-        $plugin = Server::getInstance()->getPluginManager()->getPlugin("MultiPlayerCounter");
+        $plugin = Clothes::getInstance();
         @mkdir($plugin->getDataFolder()."tmp/");
-        $path = $plugin->getDataFolder()."tmp/MultiPlayerCounter.phar";
+        $path = $plugin->getDataFolder()."tmp/Clothes.phar";
         Server::getInstance()->getAsyncPool()->submitTask(new DownloadFile($plugin, $url, $path));
     }
     /**
@@ -127,14 +127,14 @@ class Utils{
             Utils::rmalldir($plugin->getDataFolder()."/tmp");
             return;
         }
-        @rename($path, Server::getInstance()->getPluginPath()."/MultiPlayerCounter.phar");
+        @rename($path, Server::getInstance()->getPluginPath()."/Clothes.phar");
         if(Utils::getFileName() === null){
-            Server::getInstance()->getLogger()->debug("Deleting previous MultiPlayerCounter version...");
+            Server::getInstance()->getLogger()->debug("Deleting previous Clothes version...");
             Utils::rmalldir($plugin->getFileHack());
             Server::getInstance()->getLogger()->warning("Update complete, restart your server to load the new updated version.");
             return;
         }
-        @rename(Server::getInstance()->getPluginPath()."/".Utils::getFileName(), Server::getInstance()->getPluginPath()."/MultiPlayerCounter.phar.old"); //failsafe i guess.
+        @rename(Server::getInstance()->getPluginPath()."/".Utils::getFileName(), Server::getInstance()->getPluginPath()."/Clothes.phar.old"); //failsafe i guess.
         Server::getInstance()->getLogger()->warning("Update complete, restart your server to load the new updated version.");
         return;
     }
