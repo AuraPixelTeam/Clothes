@@ -36,14 +36,16 @@ class Utils{
                     Server::getInstance()->getLogger()->warning("                §c" .$lines[$i]);
                 }
                 Server::getInstance()->getLogger()->warning("§dUpdate Link :: " . $data["Response"]["link"]);
-                Server::getInstance()->getLogger()->warning("Update file was install in plugin_data/Clothes");
+				if ($plugin->getConfig()->get("enableUpdateAutoUpdater") !== true) $plugin->getLogger()->warning("§cEnable the download_updates option in config.yml to automatically download and install updates.");
             } else {
                 if ($update < 0) Server::getInstance()->getLogger()->debug("Running a build not yet released, this can cause un intended side effects (including possible data loss)");
                 return;
             }
-            Server::getInstance()->getLogger()->warning("§cDownloading & Installing Update, please do not abruptly stop server/plugin.");
-            Server::getInstance()->getLogger()->debug("Begin download of new update from '".$data["Response"]["download_link"]."'.");
-            Utils::downloadUpdate($data["Response"]["download_link"]);
+			if ($plugin->getConfig()->get("enableUpdateAutoUpdater")){
+				Server::getInstance()->getLogger()->warning("§cDownloading & Installing Update, please do not abruptly stop server/plugin.");
+				Server::getInstance()->getLogger()->debug("Begin download of new update from '".$data["Response"]["download_link"]."'.");
+				Utils::downloadUpdate($data["Response"]["download_link"]);
+			}
         } else {
             Server::getInstance()->getLogger()->warning("Failed to verify update data/incorrect format provided.");
             return;

@@ -3,7 +3,7 @@
 DeleteSkinAfterQuitting: false
 
 #get update for new release
-enableUpdateChecker: true
+enableUpdateAutoUpdater: true
 
 #type as the following to add a perm to a cloth or cosplay
 perms:
