@@ -1,7 +1,7 @@
 # Clothes
 [![](https://poggit.pmmp.io/shield.state/Clothes)](https://poggit.pmmp.io/p/Clothes)
 [![](https://poggit.pmmp.io/shield.dl.total/Clothes)](https://poggit.pmmp.io/p/Clothes)
-[![Discord](https://img.shields.io/badge/chat-on+discord-7289da.svg)](https://discord.gg/5CpFadd)
+[![Discord](https://img.shields.io/discord/942248186670641202.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/34PC5u9W)
 [![HitCount](http://hits.dwyl.com/tungstenvn/clothes.svg)](http://hits.dwyl.com/tungstenvn/clothes)
 
 ![GIF](https://github.com/TungstenVn/TungstenVn_poggit_news/blob/master/ezgif-5-0ce7417bfc97.gif)
@@ -15,11 +15,11 @@
   - FormAPI lib required, download this plugin (Clothes) from poggit (which will be .phar type) if you dont similar to this
   - That's all
 ## All Features
- - [✅] Add some extra geometry into player skin (/clo)
- - [✅] Change entire player skin into new one (/cos)
- - [✅] Change a human entity skin intro new one(/nanny)
- - [✅] Update checker
- - [❌] Support Persona Skin
+ - [x] Add some extra geometry into player skin (/clothes)
+ - [x] Change entire player skin into new one (/cosplay)
+ - [x] Change a human entity skin intro new one(/nanny)
+ - [x] Update checker
+ - [ ] Support Persona Skin
    - Who use persona skin will be replace to a unicorn skin if using clothes
 ## About clothes/cosplay
 ### How to add more clothes/cosplays into form
