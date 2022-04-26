@@ -2,15 +2,16 @@
 
 namespace TungstenVn\Clothes\checkStuff;
 
+
+use TungstenVn\Clothes\Clothes;
 use TungstenVn\Clothes\libs\jojoe77777\FormAPI\SimpleForm;
 use TungstenVn\Clothes\copyResource\copyResource;
-use TungstenVn\Clothes\Clothes;
 
 class checkRequirement
 {
     public function checkRequirement()
     {
-        $main = Clothes::$instance;
+        $main = Clothes::getInstance();
         if (!extension_loaded("gd")) {
             $main->getServer()->getLogger()->info("§6Clothes: Uncomment gd2.dll (remove symbol ';' in ';extension=php_gd2.dll') in bin/php/php.ini to make the plugin working");
             $main->getServer()->getPluginManager()->disablePlugin($main);

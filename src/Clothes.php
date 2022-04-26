@@ -2,21 +2,28 @@
 
 namespace TungstenVn\Clothes;
 
-use pocketmine\command\Command;
-use pocketmine\command\CommandSender;
+use pocketmine\command\{Command, CommandSender};
 use pocketmine\entity\Human;
-use pocketmine\event\entity\EntityDamageByEntityEvent;
-use pocketmine\event\Listener;
-use pocketmine\event\player\PlayerQuitEvent;
-use pocketmine\event\server\DataPacketReceiveEvent;
-use pocketmine\network\mcpe\protocol\LoginPacket;
-use pocketmine\network\mcpe\JwtUtils;
+use pocketmine\event\{
+    Listener,
+    player\PlayerQuitEvent,
+    server\DataPacketReceiveEvent,
+    entity\EntityDamageByEntityEvent
+};
+use pocketmine\network\mcpe\{
+    JwtUtils,
+    protocol\LoginPacket
+};
 use pocketmine\player\Player;
 use pocketmine\plugin\PluginBase;
-use TungstenVn\Clothes\checkStuff\checkClothes;
-use TungstenVn\Clothes\checkStuff\checkRequirement;
-use TungstenVn\Clothes\form\clothesForm;
-use TungstenVn\Clothes\form\cosplaysForm;
+use TungstenVn\Clothes\checkStuff\{
+    checkClothes,
+    checkRequirement,
+};
+use TungstenVn\Clothes\form\{
+    clothesForm,
+    cosplaysForm
+};
 use TungstenVn\Clothes\skinStuff\saveSkin;
 use TungstenVn\Clothes\updater\GetUpdateInfo;
 
@@ -25,14 +32,12 @@ class Clothes extends PluginBase implements Listener
     /** @var self $instance */
     public static $instance;
 
-    // sth like ["wing","lefthand"]:
-    public $clothesTypes = [];
-    public $cosplaysTypes = [];
-    //something like ["wing" =>["wing1","wing2"]]:
-    public $clothesDetails = [];
-    public $cosplaysDetails = [];
-    //Player who is using /nanny will be in here
-    private $nannyQueue = [];
+    public array $clothesTypes = [];
+    public array $cosplaysTypes = []; 
+    public array $clothesDetails = [];
+    public array $cosplaysDetails = [];
+
+    private array $nannyQueue = [];
 
     public function onEnable(): void
     {
@@ -46,24 +51,29 @@ class Clothes extends PluginBase implements Listener
         $a->checkClothes();
         $a->checkCos();
 
-        $config = $this->getConfig();
         $this->checkUpdater();
     }
 
     protected function checkUpdater() : void {
         $this->getServer()->getAsyncPool()->submitTask(new GetUpdateInfo($this, "https://raw.githubusercontent.com/AngelliaX/Clothes/master/poggit_news.json"));
     }
-
+    /**
+     * onCommand function
+     *
+     * @param CommandSender $sender
+     * @param Command $command
+     * @param string $label
+     * @param array $args
+     * @return boolean
+     */
     public function onCommand(CommandSender $sender, Command $command, string $label, array $args): bool
     {
         if ($sender instanceof Player) {        
             switch (strtolower($command->getName())) {
-                #case "clo":
                 case "clothes":
                     $form = new clothesForm($this);
                     $form->mainform($sender, "");
                     break;
-                #case "cos":
                 case "cosplays":
                     $form = new cosplaysForm($this);
                     $form->mainform($sender, "");
@@ -78,6 +88,12 @@ class Clothes extends PluginBase implements Listener
         }
         return true;
     }
+    /**
+     * onHitEntity function
+     *
+     * @param EntityDamageByEntityEvent $ev
+     * @return void
+     */
     public function onHitEntity(EntityDamageByEntityEvent $ev){
         $entity = $ev->getEntity();
         $player = $ev->getDamager();
@@ -92,6 +108,12 @@ class Clothes extends PluginBase implements Listener
             }
         }
     }
+    /**
+     * dataReceiveEv function
+     *
+     * @param DataPacketReceiveEvent $ev
+     * @return void
+     */
     public function dataReceiveEv(DataPacketReceiveEvent $ev)
     {
         if ($ev->getPacket() instanceof LoginPacket) {
@@ -110,7 +132,12 @@ class Clothes extends PluginBase implements Listener
             $saveSkin->saveSkin(base64_decode($data[1]["SkinData"], true), $name);
         }
     }
-
+    /**
+     * onQuit function
+     *
+     * @param PlayerQuitEvent $ev
+     * @return void
+     */
     public function onQuit(PlayerQuitEvent $ev)
     {
         $name = $ev->getPlayer()->getName();

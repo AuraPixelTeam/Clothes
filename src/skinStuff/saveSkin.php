@@ -2,7 +2,6 @@
 
 namespace TungstenVn\Clothes\skinStuff;
 
-use pocketmine\entity\Skin;
 use TungstenVn\Clothes\Clothes;
 
 class saveSkin

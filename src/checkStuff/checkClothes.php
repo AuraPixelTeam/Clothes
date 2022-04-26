@@ -8,9 +8,7 @@ class checkClothes
 {
     public function checkClothes()
     {
-        $main = Clothes::$instance;
-        //allDirs1 is the folder for button in the main form
-        //allDirs2 is the folder of clothes to chose in the deeper form
+        $main = Clothes::getInstance();
         $checkFileAvailable = [];
         if (!file_exists($main->getDataFolder() . "clothes")) {
             mkdir($main->getDataFolder() . "clothes", 0777);
@@ -47,9 +45,7 @@ class checkClothes
 
     public function checkCos()
     {
-        $main = Clothes::$instance;
-        //allDirs1 is the folder for button in the main form
-        //allDirs2 is the folder of Cos to chose in the deeper form
+        $main = Clothes::getInstance();
         $checkFileAvailable = [];
         if (!file_exists($main->getDataFolder() . "cosplays")) {
             mkdir($main->getDataFolder() . "cosplays", 0777);

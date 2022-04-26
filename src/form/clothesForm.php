@@ -3,15 +3,16 @@
 namespace TungstenVn\Clothes\form;
 
 use pocketmine\player\Player;
-use TungstenVn\Clothes\Clothes;
-
-use TungstenVn\Clothes\libs\jojoe77777\FormAPI\SimpleForm;
-use TungstenVn\Clothes\skinStuff\resetSkin;
-use TungstenVn\Clothes\skinStuff\setSkin;
+use TungstenVn\Clothes\{
+    Clothes,
+    skinStuff\resetSkin,
+    skinStuff\setSkin,
+    libs\jojoe77777\FormAPI\SimpleForm
+};
 
 class clothesForm
 {
-    public $clo;
+    protected Clothes $clo;
 
     public function __construct(Clothes $clo)
     {
