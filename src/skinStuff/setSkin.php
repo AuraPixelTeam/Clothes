@@ -37,6 +37,7 @@ class setSkin
         $locate = "clothes/" . $locate;
         $skin = $player->getSkin();
         $name = $player->getName();
+        $name = str_replace("_", " ", $name);
         $path = Clothes::$instance->getDataFolder() . "saveskin/" . $name . ".png";
 
         $size = getimagesize($path);
