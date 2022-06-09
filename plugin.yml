@@ -4,7 +4,7 @@ version: 6.5
 main: TungstenVn\Clothes\Clothes
 src-namespace-prefix: TungstenVn\Clothes
 api: 4.0.0
-mcpe-protocol: [475, 486, 503]
+mcpe-protocol: [475, 486, 503, 527]
 author: TungstenVn
 authors:
   - DavidGlitch04
