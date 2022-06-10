@@ -6,9 +6,9 @@ use pocketmine\player\Player;
 use TungstenVn\Clothes\{
     Clothes,
     skinStuff\resetSkin,
-    skinStuff\setSkin,
-    libs\jojoe77777\FormAPI\SimpleForm
+    skinStuff\setSkin
 };
+use Vecnavium\FormsUI\SimpleForm;
 
 class cosplaysForm
 {
