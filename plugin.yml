@@ -1,6 +1,6 @@
 ---
 name: Clothes
-version: 6.5
+version: 6.6
 main: TungstenVn\Clothes\Clothes
 src-namespace-prefix: TungstenVn\Clothes
 api: 4.0.0
