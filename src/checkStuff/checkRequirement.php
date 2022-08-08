@@ -4,7 +4,7 @@ namespace TungstenVn\Clothes\checkStuff;
 
 
 use TungstenVn\Clothes\Clothes;
-use TungstenVn\Clothes\libs\jojoe77777\FormAPI\SimpleForm;
+use TungstenVn\Clothes\libs\Vecnavium\FormsUI\SimpleForm;
 use TungstenVn\Clothes\copyResource\copyResource;
 
 class checkRequirement
