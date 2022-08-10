@@ -1,10 +1,10 @@
 ---
 name: Clothes
-version: 6.7
+version: 6.8
 main: TungstenVn\Clothes\Clothes
 src-namespace-prefix: TungstenVn\Clothes
 api: 4.0.0
-mcpe-protocol: 534
+mcpe-protocol: 544
 author: TungstenVn
 authors:
   - DavidGlitch04
