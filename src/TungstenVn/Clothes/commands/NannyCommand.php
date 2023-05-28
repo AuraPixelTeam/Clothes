@@ -43,7 +43,7 @@ class NannyCommand extends Command implements PluginOwned
     }
 
     /**
-     * @return Plugin
+     * @return Loader
      */
     public function getOwningPlugin(): Loader
     {
