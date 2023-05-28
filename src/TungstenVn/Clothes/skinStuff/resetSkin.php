@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace TungstenVn\Clothes\skinStuff;
 
 use pocketmine\entity\Skin;
@@ -10,11 +12,11 @@ class resetSkin
 {
 
 
-    public function setSkin(Player $player)
+    public function setSkin(Player $player): void
     {
         $skin = $player->getSkin();
         $name = $player->getName();
-        $path = Clothes::$instance->getDataFolder() . "saveskin/" . $name . ".png";
+        $path = Clothes::getInstance()->getDataFolder() . "saveskin/" . $name . ".png";
 
         $img = @imagecreatefrompng($path);
         $size = getimagesize($path);
@@ -30,7 +32,7 @@ class resetSkin
             }
         }
         @imagedestroy($img);
-        $player->setSkin(new Skin($skin->getSkinId(), $skinbytes, "", "geometry.humanoid.custom", file_get_contents(Clothes::$instance->getDataFolder() . "steve.json")));
+        $player->setSkin(new Skin($skin->getSkinId(), $skinbytes, "", "geometry.humanoid.custom", file_get_contents(Clothes::getInstance()->getDataFolder() . "steve.json")));
         $player->sendSkin();
     }
 }

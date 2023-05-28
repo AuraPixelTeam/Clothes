@@ -1,39 +1,50 @@
 <?php
 
+declare(strict_types=1);
+
 namespace TungstenVn\Clothes\checkStuff;
 
 use TungstenVn\Clothes\Clothes;
 
 class checkClothes
 {
-    public function checkClothes()
+    public function checkClothes(): void
     {
         $main = Clothes::getInstance();
         $checkFileAvailable = [];
-        if (!file_exists($main->getDataFolder() . "clothes")) {
-            mkdir($main->getDataFolder() . "clothes", 0777);
+        $clothesDir = $main->getDataFolder() . "clothes/";
+
+        if (!file_exists($clothesDir)) {
+            mkdir($clothesDir);
         }
-        $path = $main->getDataFolder() . "clothes/";
-        $allDirs = scandir($path);
-        foreach ($allDirs as $foldersName) {
-            if (is_dir($path . $foldersName)) {
-                array_push($main->clothesTypes, $foldersName);
-                $allFiles = scandir($path . $foldersName);
-                foreach ($allFiles as $allFilesName) {
-                    if (strpos($allFilesName, ".json")) {
-                        array_push($checkFileAvailable, str_replace('.json', '', $allFilesName));
+
+        $allDirs = scandir($clothesDir);
+
+        foreach ($allDirs as $folderName) {
+            $folderPath = $clothesDir . $folderName;
+
+            if (is_dir($folderPath)) {
+                $main->clothesTypes[] = $folderName;
+                $allFiles = scandir($folderPath);
+
+                foreach ($allFiles as $fileName) {
+                    if (strpos($fileName, ".json")) {
+                        $checkFileAvailable[] = str_replace('.json', '', $fileName);
                     }
                 }
+
                 foreach ($checkFileAvailable as $value) {
                     if (!in_array($value . ".png", $allFiles)) {
                         unset($checkFileAvailable[array_search($value, $checkFileAvailable)]);
                     }
                 }
-                $main->clothesDetails[$foldersName] = $checkFileAvailable;
-                sort($main->clothesDetails[$foldersName]);
+
+                $main->clothesDetails[$folderName] = $checkFileAvailable;
+                sort($main->clothesDetails[$folderName]);
                 $checkFileAvailable = [];
             }
         }
+
         unset($main->clothesTypes[0]);
         unset($main->clothesTypes[1]);
         unset($main->clothesTypes[array_search("saveskin", $main->clothesTypes)]);
@@ -43,34 +54,43 @@ class checkClothes
         sort($main->clothesTypes);
     }
 
-    public function checkCos()
+    public function checkCos(): void
     {
         $main = Clothes::getInstance();
         $checkFileAvailable = [];
-        if (!file_exists($main->getDataFolder() . "cosplays")) {
-            mkdir($main->getDataFolder() . "cosplays", 0777);
+        $cosplaysDir = $main->getDataFolder() . "cosplays/";
+
+        if (!file_exists($cosplaysDir)) {
+            mkdir($cosplaysDir);
         }
-        $path = $main->getDataFolder() . "cosplays/";
-        $allDirs = scandir($path);
-        foreach ($allDirs as $foldersName) {
-            if (is_dir($path . $foldersName)) {
-                array_push($main->cosplaysTypes, $foldersName);
-                $allFiles = scandir($path . $foldersName);
-                foreach ($allFiles as $allFilesName) {
-                    if (strpos($allFilesName, ".json")) {
-                        array_push($checkFileAvailable, str_replace('.json', '', $allFilesName));
+
+        $allDirs = scandir($cosplaysDir);
+
+        foreach ($allDirs as $folderName) {
+            $folderPath = $cosplaysDir . $folderName;
+
+            if (is_dir($folderPath)) {
+                $main->cosplaysTypes[] = $folderName;
+                $allFiles = scandir($folderPath);
+
+                foreach ($allFiles as $fileName) {
+                    if (strpos($fileName, ".json")) {
+                        $checkFileAvailable[] = str_replace('.json', '', $fileName);
                     }
                 }
+
                 foreach ($checkFileAvailable as $value) {
                     if (!in_array($value . ".png", $allFiles)) {
                         unset($checkFileAvailable[array_search($value, $checkFileAvailable)]);
                     }
                 }
-                $main->cosplaysDetails[$foldersName] = $checkFileAvailable;
-                sort($main->cosplaysDetails[$foldersName]);
+
+                $main->cosplaysDetails[$folderName] = $checkFileAvailable;
+                sort($main->cosplaysDetails[$folderName]);
                 $checkFileAvailable = [];
             }
         }
+
         unset($main->cosplaysTypes[0]);
         unset($main->cosplaysTypes[1]);
         unset($main->cosplaysTypes[array_search("saveskin", $main->cosplaysTypes)]);

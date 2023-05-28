@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace TungstenVn\Clothes\skinStuff;
 
 use TungstenVn\Clothes\Clothes;
@@ -7,7 +9,7 @@ use TungstenVn\Clothes\Clothes;
 class saveSkin
 {
 
-    public $skin_widght_map = [
+    public array $skin_widget_map = [
         64 * 32 * 4 => 64,
         64 * 64 * 4 => 64,
         128 * 128 * 4 => 128,
@@ -15,16 +17,16 @@ class saveSkin
 
     ];
 
-    public $skin_height_map = [
+    public array $skin_height_map = [
         64 * 32 * 4 => 32,
         64 * 64 * 4 => 64,
         128 * 128 * 4 => 128,
         128 * 256 * 4 => 128
     ];
 
-    public function saveSkin(string $skin,string $name)
+    public function saveSkin(string $skin,string $name): void
     {
-        $path = Clothes::$instance->getDataFolder();
+        $path = Clothes::getInstance()->getDataFolder();
         if (!file_exists($path . "saveskin")) {
             mkdir($path . "saveskin", 0777);
         }
@@ -41,12 +43,12 @@ class saveSkin
     {
         $size = strlen($skinData);
 
-        $width = $this->skin_widght_map[$size];
+        $width = $this->skin_widget_map[$size];
         $height = $this->skin_height_map[$size];
         $skinPos = 0;
         $image = imagecreatetruecolor($width, $height);
         if ($image === false) {
-            Clothes::$instance->getServer()->broadcastMessage("An error occur on Clothes plugin,id: 2");
+            Clothes::getInstance()->getServer()->broadcastMessage("An error occur on Clothes plugin,id: 2");
             return null;
         }
         // Make background transparent
@@ -68,5 +70,4 @@ class saveSkin
         imagesavealpha($image, true);
         return $image;
     }
-
 }

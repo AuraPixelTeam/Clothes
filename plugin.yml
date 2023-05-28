@@ -2,24 +2,11 @@
 name: Clothes
 version: 6.8
 main: TungstenVn\Clothes\Clothes
-src-namespace-prefix: TungstenVn\Clothes
 api: 4.0.0
-mcpe-protocol: 545
+mcpe-protocol: 582
 author: TungstenVn
 authors:
-  - DavidGlitch04
-commands:
-  clothes:
-    description: Clothes commands
-    aliases: ["clo"]
-    permission: clothes.command
-  cosplays:
-    description: Clothes commands
-    aliases: ["cos"]
-    permission: cosplays.command
-  nanny:
-    description: Clothes commands
-    permission: nanny.clothes.command
+  - taylordevs
 
 permissions:
   clothes.command:
