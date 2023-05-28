@@ -1,7 +1,7 @@
 {
-  "version": "6.8",
-  "time": 1660094925,
-  "link": "https://github.com/David-pm-pl/Clothes/releases/tag/v6.8",
-  "download_link": "https://poggit.pmmp.io/r/172536/Clothes_dev-126.phar",
-  "patch_notes": "## Whats New ?\n- Support protocol 544"
+  "version": "6.9",
+  "time": 1685289444239,
+  "link": "https://github.com/Taylor-pm-pl/Clothes/releases/tag/v6.9",
+  "download_link": "https://poggit.pmmp.io/r/207986/Clothes_dev-130.phar",
+  "patch_notes": "## Whats New ?\n- Optimized code\n- Support protocol 582"
 }

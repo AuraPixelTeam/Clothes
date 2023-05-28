@@ -44,7 +44,7 @@ class Clothes extends PluginBase
     }
 
     protected function checkUpdater() : void {
-        $this->getServer()->getAsyncPool()->submitTask(new GetUpdateInfo($this, "https://raw.githubusercontent.com/AngelliaX/Clothes/master/poggit_news.json"));
+        $this->getServer()->getAsyncPool()->submitTask(new GetUpdateInfo($this, "https://raw.githubusercontent.com/Taylor-pm-pl/Clothes/master/poggit_news.json"));
     }
 
     public function getFileHack(): string

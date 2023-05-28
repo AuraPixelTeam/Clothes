@@ -45,7 +45,7 @@ class NannyCommand extends Command implements PluginOwned
     /**
      * @return Plugin
      */
-    public function getOwningPlugin(): Plugin
+    public function getOwningPlugin(): Loader
     {
         return Loader::getInstance();
     }
