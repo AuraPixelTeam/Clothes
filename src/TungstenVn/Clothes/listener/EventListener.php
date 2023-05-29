@@ -78,7 +78,7 @@ class EventListener implements Listener
     {
         $name = $ev->getPlayer()->getName();
         $clothes = $this->getLoader();
-        unset($clothes->nannyQueue[$name]);
+        SessionManager::removePlayer($ev->getPlayer());
 
         $willDelete = $clothes->getConfig()->getNested('DeleteSkinAfterQuitting');
         if ($willDelete) {

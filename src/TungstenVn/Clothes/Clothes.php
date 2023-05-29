@@ -12,7 +12,7 @@ use TungstenVn\Clothes\commands\CosplaysCommand;
 use TungstenVn\Clothes\commands\NannyCommand;
 use pocketmine\utils\SingletonTrait;
 use TungstenVn\Clothes\listener\EventListener;
-use TungstenVn\Clothes\updater\GetUpdateInfo;
+use TungstenVn\Clothes\updater\CheckUpdateTask;
 
 class Clothes extends PluginBase
 {
@@ -22,7 +22,6 @@ class Clothes extends PluginBase
     public array $cosplaysTypes = []; 
     public array $clothesDetails = [];
     public array $cosplaysDetails = [];
-    public array $nannyQueue = [];
 
     public function onEnable(): void
     {
@@ -44,7 +43,10 @@ class Clothes extends PluginBase
     }
 
     protected function checkUpdater() : void {
-        $this->getServer()->getAsyncPool()->submitTask(new GetUpdateInfo($this, "https://raw.githubusercontent.com/Taylor-pm-pl/Clothes/master/poggit_news.json"));
+        $this->getServer()->getAsyncPool()->submitTask(new CheckUpdateTask(
+            $this->getDescription()->getName(),
+            $this->getDescription()->getVersion())
+        );
     }
 
     public function getFileHack(): string

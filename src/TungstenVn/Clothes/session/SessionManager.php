@@ -28,6 +28,10 @@ class SessionManager
         self::$session[$playerName] = true;
     }
 
+    /**
+     * @param Player $player
+     * @return void
+     */
     public static function removePlayer(Player $player): void {
         $playerName = strtolower($player->getName());
         if (self::getPlayer($player) !== null) {
