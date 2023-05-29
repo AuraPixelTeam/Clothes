@@ -19,8 +19,10 @@ class CheckUpdateTask extends AsyncTask{
      * @param string $pluginName
      * @param string $pluginVersion
      */
-    public function __construct(private readonly string $pluginName, private readonly string $pluginVersion){
-    }
+    public function __construct(
+        private string $pluginName,
+        private string $pluginVersion
+    ){}
 
     /**
      * @return void
