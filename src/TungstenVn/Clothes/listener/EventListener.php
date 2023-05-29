@@ -13,6 +13,7 @@ use pocketmine\network\mcpe\JwtUtils;
 use pocketmine\network\mcpe\protocol\LoginPacket;
 use pocketmine\player\Player;
 use TungstenVn\Clothes\Clothes;
+use TungstenVn\Clothes\session\SessionManager;
 use TungstenVn\Clothes\skinStuff\saveSkin;
 
 class EventListener implements Listener
@@ -34,11 +35,11 @@ class EventListener implements Listener
         $player = $ev->getDamager();
         $clothes = $this->getLoader();
         if($player instanceof Player){
-            if(array_key_exists($player->getName(), $clothes->nannyQueue)){
-                if($entity instanceof Human and !$entity instanceof Player){
+            if(SessionManager::getPlayer($player)){
+                if($entity instanceof Human && !$entity instanceof Player){
                     $entity->setSkin($player->getSkin());
                     $entity->sendSkin();
-                    unset($clothes->nannyQueue[$player->getName()]);
+                    SessionManager::removePlayer($player);
                     $player->sendMessage("§aSuccessfully changing entity skin");
                 }
             }

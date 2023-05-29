@@ -10,6 +10,7 @@ use pocketmine\player\Player;
 use TungstenVn\Clothes\Clothes as Loader;
 use pocketmine\plugin\Plugin;
 use pocketmine\plugin\PluginOwned;
+use TungstenVn\Clothes\session\SessionManager;
 
 class NannyCommand extends Command implements PluginOwned
 {
@@ -38,7 +39,7 @@ class NannyCommand extends Command implements PluginOwned
             $sender->sendMessage("§cPlease use this command in-game");
             return;
         }
-        $this->getOwningPlugin()->nannyQueue[$sender->getName()] = "OK";
+        SessionManager::addPlayer($sender);
         $sender->sendMessage("§aTap a slapper to change skin");
     }
 
