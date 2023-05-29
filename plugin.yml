@@ -1,6 +1,6 @@
 ---
 name: Clothes
-version: 7.0
+version: 7.1
 main: TungstenVn\Clothes\Clothes
 api: 4.0.0
 mcpe-protocol: 582
