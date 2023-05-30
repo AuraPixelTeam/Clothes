@@ -16,7 +16,7 @@ class SessionManager
      */
     public static function getPlayer(Player $player): ?bool {
         $playerName = strtolower($player->getName());
-        return self::$session[$playerName];
+        return self::$session[$playerName] ?? null;
     }
 
     /**

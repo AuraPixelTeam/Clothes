@@ -28,6 +28,10 @@ class Clothes extends PluginBase
         self::setInstance($this);
         $this->getServer()->getPluginManager()->registerEvents(new EventListener(), $this);
 
+        foreach ($this->getResources() as $resource) {
+            $this->saveResource($resource->getFilename());
+        }
+
         $a = new checkRequirement();
         $a->checkRequirement();
 
