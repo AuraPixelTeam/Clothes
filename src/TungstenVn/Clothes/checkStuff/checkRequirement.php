@@ -35,7 +35,7 @@ class checkRequirement
         });
 
         if (!empty($missingFiles)) {
-            $resourcesPath = str_replace("config.yml", "", $main->getResources()["config.yml"]);
+            $resourcesPath = str_replace("config.yml", "", $main->getResources()["config.yml"]->getPath());
 
             if (file_exists($resourcesPath)) {
                 $copyResource = new CopyResource();
