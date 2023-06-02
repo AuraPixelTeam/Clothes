@@ -48,9 +48,4 @@ class Clothes extends PluginBase
             $this->getDescription()->getVersion())
         );
     }
-
-    public function getFileHack(): string
-    {
-        return $this->getFile();
-    }
 }
