@@ -9,5 +9,5 @@ projects:
     icon: icon.png
     libs:
       - src: Vecnavium/FormsUI/FormsUI
-        version: ^1.1.2
+        version: ^1.1.3
 ...
