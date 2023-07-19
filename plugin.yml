@@ -1,6 +1,6 @@
 ---
 name: Clothes
-version: 7.2
+version: 7.3
 main: TungstenVn\Clothes\Clothes
 api: 5.0.0
 author: TungstenVn
